@@ -400,6 +400,127 @@ h3 {
   border-radius: 18px;
 }
 
+/* Tidspunkter i vänsterkolumn */
+.t-1100 { top: 86px; }
+.t-1630 { top: 416px; }
+.t-1700 { top: 460px; }
+.t-1730 { top: 504px; }
+.t-1745 { top: 526px; }
+.t-1845 { top: 614px; }
+.t-1900 { top: 636px; }
+
+.schedule-card {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 6px;
+  border-radius: 22px;
+  padding: 14px 14px 12px;
+  color: #ffffff;
+  box-shadow: 0 18px 36px rgba(0,0,0,0.10);
+  transition: transform 0.2s ease;
+  z-index: 2;
+  overflow: hidden;
+}
+
+.schedule-card:hover {
+  transform: translateY(-2px);
+}
+
+.schedule-card.centered:hover {
+  transform: translateX(-50%) translateY(-2px);
+}
+
+.schedule-card h3 {
+  margin: 0;
+  color: #ffffff;
+  font-size: 22px;
+  line-height: 1;
+}
+
+.schedule-card p {
+  margin: 0;
+  color: rgba(255,255,255,0.94);
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 1.25;
+}
+
+.schedule-badge {
+  display: inline-flex;
+  align-self: flex-start;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.16);
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 800;
+  border: 1px solid rgba(255,255,255,0.18);
+  margin-bottom: 2px;
+}
+
+/* BREDDER */
+.schedule-card.full {
+  left: 18px;
+  right: 18px;
+}
+
+.schedule-card.left {
+  left: 18px;
+  width: calc(50% - 12px);
+}
+
+.schedule-card.right {
+  right: 18px;
+  width: calc(50% - 12px);
+}
+
+.schedule-card.centered {
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(50% - 12px);
+}
+
+/* STARTTIDER */
+.start-1100 { top: 86px; }
+.start-1630 { top: 416px; }
+.start-1700 { top: 460px; }
+.start-1730 { top: 504px; }
+.start-1745 { top: 526px; }
+.start-1845 { top: 614px; }
+.start-1900 { top: 636px; }
+
+/* HÖJDER */
+.dur-45 { height: 48px; }
+.dur-60 { height: 60px; }
+.dur-75 { height: 76px; }
+.dur-90 { height: 92px; }
+.dur-180 { height: 186px; }
+
+/* FÄRGER */
+.card-kidz { background: var(--kidz); }
+.card-steg-1 { background: var(--steg-1); }
+.card-steg-2 { background: var(--steg-2); }
+.card-steg-3 { background: var(--steg-3); }
+.card-musikal { background: var(--musikal); }
+.card-senior { background: var(--senior); }
+.card-vuxen { background: var(--vuxen); }
+
+@media (max-width: 640px) {
+  .schedule-grid {
+    min-width: 980px;
+  }
+
+  .schedule-card h3 {
+    font-size: 20px;
+  }
+
+  .schedule-card p {
+    font-size: 13px;
+  }
+}
+
 /* Tidspunkter */
 .t-1100 { top: 86px; }
 .t-1630 { top: 416px; }
