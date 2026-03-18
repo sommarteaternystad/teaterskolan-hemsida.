@@ -14,7 +14,7 @@
 
   <header class="site-header site-header-home">
     <div class="container header-home-inner">
-      <a class="hero-brand" href="index.html">
+      <a class="hero-brand" href="index.html" aria-label="Teaterskolans startsida">
         <img src="images/logo.png" alt="Teaterskolans logga" class="hero-brand-logo" />
       </a>
 
@@ -125,111 +125,142 @@
           </p>
         </div>
 
-        <div class="schedule-board">
-          <div class="schedule-column">
-            <div class="schedule-day">Måndag</div>
+        <div class="schedule-wrapper">
+          <div class="schedule-grid">
+            <div class="time-col">
+              <div class="time-head"></div>
+              <div class="time-slot t-1100">11.00</div>
+              <div class="time-slot t-1630">16.30</div>
+              <div class="time-slot t-1700">17.00</div>
+              <div class="time-slot t-1730">17.30</div>
+              <div class="time-slot t-1745">17.45</div>
+              <div class="time-slot t-1845">18.45</div>
+              <div class="time-slot t-1900">19.00</div>
+            </div>
 
-            <a class="schedule-card card-steg-1 h-1" href="kurser/steg-1.html">
-              <span class="schedule-badge">7–10 år</span>
-              <h3>Steg 1</h3>
-              <p>16.30–17.30</p>
-            </a>
+            <div class="day-col">
+              <div class="day-head">Måndag</div>
 
-            <a class="schedule-card card-steg-2 h-1" href="kurser/steg-2.html">
-              <span class="schedule-badge">Fortsättning</span>
-              <h3>Steg 2</h3>
-              <p>17.30–18.45</p>
-            </a>
+              <a class="schedule-card card-steg-1 start-1630 dur-60 full" href="kurser/steg-1.html">
+                <span class="schedule-badge">7–10 år</span>
+                <h3>Steg 1</h3>
+                <p>16.30–17.30</p>
+              </a>
 
-            <a class="schedule-card card-steg-3 h-1" href="kurser/steg-3.html">
-              <span class="schedule-badge">Fördjupning</span>
-              <h3>Steg 3</h3>
-              <p>18.45–20.15</p>
-            </a>
+              <a class="schedule-card card-steg-2 start-1730 dur-75 left" href="kurser/steg-2.html">
+                <span class="schedule-badge">Fortsättning</span>
+                <h3>Steg 2</h3>
+                <p>17.30–18.45</p>
+              </a>
 
-            <a class="schedule-card card-musikal h-1" href="kurser/musikal.html">
-              <span class="schedule-badge">Musikal</span>
-              <h3>Musikal</h3>
-              <p>Kvällsgrupp</p>
-            </a>
-          </div>
+              <a class="schedule-card card-musikal start-1730 dur-90 right" href="kurser/musikal.html">
+                <span class="schedule-badge">Musikal</span>
+                <h3>Musikal Gul</h3>
+                <p>17.30–19.00</p>
+              </a>
 
-          <div class="schedule-column">
-            <div class="schedule-day">Tisdag</div>
+              <a class="schedule-card card-steg-3 start-1845 dur-90 left" href="kurser/steg-3.html">
+                <span class="schedule-badge">Fördjupning</span>
+                <h3>Steg 3</h3>
+                <p>18.45–20.15</p>
+              </a>
 
-            <a class="schedule-card card-senior h-1" href="kurser/seniorteater.html">
-              <span class="schedule-badge">Daggrupp</span>
-              <h3>SeniorTeater</h3>
-              <p>Förmiddag</p>
-            </a>
+              <a class="schedule-card card-musikal start-1900 dur-90 right" href="kurser/musikal.html">
+                <span class="schedule-badge">Musikal</span>
+                <h3>Musikal Lila</h3>
+                <p>19.00–20.30</p>
+              </a>
+            </div>
 
-            <a class="schedule-card card-steg-1 h-1" href="kurser/steg-1.html">
-              <span class="schedule-badge">7–10 år</span>
-              <h3>Steg 1</h3>
-              <p>16.30–17.30</p>
-            </a>
+            <div class="day-col">
+              <div class="day-head">Tisdag</div>
 
-            <a class="schedule-card card-steg-3 h-1" href="kurser/steg-3.html">
-              <span class="schedule-badge">Fördjupning</span>
-              <h3>Steg 3</h3>
-              <p>17.30–19.00</p>
-            </a>
+              <a class="schedule-card card-senior start-1100 dur-90 centered" href="kurser/seniorteater.html">
+                <span class="schedule-badge">Daggrupp</span>
+                <h3>SeniorTeater</h3>
+                <p>11.00–12.30</p>
+              </a>
 
-            <a class="schedule-card card-vuxen h-1" href="kurser/vuxenteater.html">
-              <span class="schedule-badge">För vuxna</span>
-              <h3>Vuxenteater</h3>
-              <p>Kvällsgrupp</p>
-            </a>
-          </div>
+              <a class="schedule-card card-steg-1 start-1630 dur-60 left" href="kurser/steg-1.html">
+                <span class="schedule-badge">7–10 år</span>
+                <h3>Steg 1</h3>
+                <p>16.30–17.30</p>
+              </a>
 
-          <div class="schedule-column">
-            <div class="schedule-day">Onsdag</div>
+              <a class="schedule-card card-vuxen start-1700 dur-90 right" href="kurser/vuxenteater.html">
+                <span class="schedule-badge">För vuxna</span>
+                <h3>Vuxen A</h3>
+                <p>17.00–18.30</p>
+              </a>
 
-            <a class="schedule-card card-kidz h-1" href="kurser/teaterkidz.html">
-              <span class="schedule-badge">3–6 år</span>
-              <h3>TeaterKidz</h3>
-              <p>Eftermiddag</p>
-            </a>
+              <a class="schedule-card card-steg-3 start-1730 dur-90 left" href="kurser/steg-3.html">
+                <span class="schedule-badge">Fördjupning</span>
+                <h3>Steg 3</h3>
+                <p>17.30–19.00</p>
+              </a>
 
-            <a class="schedule-card card-steg-1 h-1" href="kurser/steg-1.html">
-              <span class="schedule-badge">7–10 år</span>
-              <h3>Steg 1</h3>
-              <p>16.30–17.30</p>
-            </a>
+              <a class="schedule-card card-kidz start-1700 dur-45 full kidz-card" href="kurser/teaterkidz.html">
+                <span class="schedule-badge">3–6 år</span>
+                <h3>TeaterKidz</h3>
+                <p>17.00–17.45</p>
+              </a>
 
-            <a class="schedule-card card-steg-2 h-1" href="kurser/steg-2.html">
-              <span class="schedule-badge">Fortsättning</span>
-              <h3>Steg 2</h3>
-              <p>17.30–18.45</p>
-            </a>
+              <a class="schedule-card card-vuxen start-1745 dur-90 right" href="kurser/vuxenteater.html">
+                <span class="schedule-badge">För vuxna</span>
+                <h3>Vuxen B</h3>
+                <p>17.45–19.15</p>
+              </a>
 
-            <a class="schedule-card card-steg-3 h-1" href="kurser/steg-3.html">
-              <span class="schedule-badge">Fördjupning</span>
-              <h3>Steg 3</h3>
-              <p>18.45–20.15</p>
-            </a>
-          </div>
+              <a class="schedule-card card-steg-2 start-1900 dur-75 left" href="kurser/steg-2.html">
+                <span class="schedule-badge">Fortsättning</span>
+                <h3>Steg 2</h3>
+                <p>19.00–20.15</p>
+              </a>
+            </div>
 
-          <div class="schedule-column">
-            <div class="schedule-day">Torsdag</div>
+            <div class="day-col">
+              <div class="day-head">Onsdag</div>
 
-            <a class="schedule-card card-steg-1 h-1" href="kurser/steg-1.html">
-              <span class="schedule-badge">7–10 år</span>
-              <h3>Steg 1</h3>
-              <p>17.45–18.45</p>
-            </a>
+              <a class="schedule-card card-steg-1 start-1630 dur-60 full" href="kurser/steg-1.html">
+                <span class="schedule-badge">7–10 år</span>
+                <h3>Steg 1</h3>
+                <p>16.30–17.30</p>
+              </a>
 
-            <a class="schedule-card card-steg-2 h-1" href="kurser/steg-2.html">
-              <span class="schedule-badge">Fortsättning</span>
-              <h3>Steg 2</h3>
-              <p>18.45–20.00</p>
-            </a>
+              <a class="schedule-card card-steg-2 start-1730 dur-75 full" href="kurser/steg-2.html">
+                <span class="schedule-badge">Fortsättning</span>
+                <h3>Steg 2</h3>
+                <p>17.30–18.45</p>
+              </a>
 
-            <a class="schedule-card card-musikal h-2" href="kurser/musikal.html">
-              <span class="schedule-badge">Musikal</span>
-              <h3>Musikal</h3>
-              <p>Längre kvällspass</p>
-            </a>
+              <a class="schedule-card card-steg-3 start-1845 dur-90 full" href="kurser/steg-3.html">
+                <span class="schedule-badge">Fördjupning</span>
+                <h3>Steg 3</h3>
+                <p>18.45–20.15</p>
+              </a>
+            </div>
+
+            <div class="day-col">
+              <div class="day-head">Torsdag</div>
+
+              <a class="schedule-card card-musikal start-1700 dur-180 right tall" href="kurser/musikal.html">
+                <span class="schedule-badge">Musikal</span>
+                <h3>Musikal Röd</h3>
+                <p>17.00–20.00</p>
+              </a>
+
+              <a class="schedule-card card-steg-1 start-1745 dur-60 left" href="kurser/steg-1.html">
+                <span class="schedule-badge">7–10 år</span>
+                <h3>Steg 1</h3>
+                <p>17.45–18.45</p>
+              </a>
+
+              <a class="schedule-card card-steg-2 start-1845 dur-75 left" href="kurser/steg-2.html">
+                <span class="schedule-badge">Fortsättning</span>
+                <h3>Steg 2</h3>
+                <p>18.45–20.00</p>
+              </a>
+            </div>
           </div>
         </div>
       </div>
