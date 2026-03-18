@@ -7,42 +7,23 @@
   <meta name="description" content="Teaterkurser för barn, ungdomar och vuxna i Ystad. Läs om Teaterskolans kurser, grupper, nivåer och anmälan." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body class="page-home">
-<header class="site-header site-header-large">
-  <div class="site-header-inner">
-    <div class="container header-center">
-      <a class="brand brand-centered" href="index.html">
-        <img src="images/logo.png" alt="Teaterskolans logga" class="brand-logo brand-logo-large" />
-        <div class="brand-text-centered">
-          <div class="brand-title">Teaterskolan</div>
-          <div class="brand-subtitle">Sommarteatern i Ystad</div>
-        </div>
+
+  <header class="site-header site-header-home">
+    <div class="container header-home-inner">
+      <a class="hero-brand" href="index.html">
+        <img src="images/logo.png" alt="Teaterskolans logga" class="hero-brand-logo" />
       </a>
 
-      <button class="menu-toggle" aria-label="Öppna meny">☰</button>
-
-      <nav class="site-nav site-nav-centered">
-        <a href="index.html">Hem</a>
-        <a href="#kurser">Kurser</a>
-        <a href="#om">Om Teaterskolan</a>
-        <a href="#faq">Frågor</a>
-        <a href="#kontakt">Kontakt</a>
-      </nav>
-    </div>
-  </div>
-</header>
-
-      <button class="menu-toggle" aria-label="Öppna meny">☰</button>
-
-      <nav class="site-nav">
-        <a href="index.html">Hem</a>
-        <a href="#kurser">Kurser</a>
-        <a href="#om">Om Teaterskolan</a>
-        <a href="#faq">Frågor</a>
-        <a href="#kontakt">Kontakt</a>
+      <nav class="hero-menu" aria-label="Huvudmeny">
+        <a href="index.html" class="hero-menu-item">Hem</a>
+        <a href="#kursschema" class="hero-menu-item">Kurser</a>
+        <a href="#om" class="hero-menu-item">Om</a>
+        <a href="#faq" class="hero-menu-item">Frågor</a>
+        <a href="#kontakt" class="hero-menu-item">Kontakt</a>
       </nav>
     </div>
   </header>
@@ -57,7 +38,7 @@
           Teaterskolan i Sommarteatern Ystad erbjuder kurser för olika åldrar och nivåer. Här får deltagarna träna teater, sång, uttryck och samspel i en trygg, kreativ och utvecklande miljö.
         </p>
         <div class="hero-actions">
-          <a class="btn btn-primary" href="#kurser">Se våra kurser</a>
+          <a class="btn btn-primary" href="#kursschema">Se kursschema</a>
           <a class="btn btn-secondary" href="kurser/steg-1.html">Läs om Steg 1</a>
         </div>
       </div>
@@ -127,14 +108,134 @@
           <div class="panel">
             <h3>Olika mål beroende på nivå</h3>
             <p>
-              Våra grupper redovisar på olika sätt beroende på nivå och inriktning. Steg 1 och 2 avslutar hösten med höstshow och arbetar mot egen föreställning på våren, medan Steg 3, Steg Vuxen och musikalgrupperna fördjupar sig i ett längre föreställningsarbete under hela läsåret.
+              Våra grupper redovisar på olika sätt beroende på nivå och inriktning. Steg 1 och 2 avslutar hösten med höstshow och arbetar mot egen föreställning på våren, medan Steg 3, Vuxenteater och musikalgrupperna fördjupar sig i ett längre föreställningsarbete under hela läsåret.
             </p>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section">
+    <section class="section" id="kursschema">
+      <div class="container">
+        <div class="section-head center">
+          <p class="section-kicker">Kursschema</p>
+          <h2>Hitta rätt grupp direkt i veckoschemat.</h2>
+          <p>
+            Klicka på en grupp för att läsa mer om kursen, nivå, innehåll och anmälan.
+          </p>
+        </div>
+
+        <div class="schedule-board">
+          <div class="schedule-column">
+            <div class="schedule-day">Måndag</div>
+
+            <a class="schedule-card card-steg-1 h-1" href="kurser/steg-1.html">
+              <span class="schedule-badge">7–10 år</span>
+              <h3>Steg 1</h3>
+              <p>16.30–17.30</p>
+            </a>
+
+            <a class="schedule-card card-steg-2 h-1" href="kurser/steg-2.html">
+              <span class="schedule-badge">Fortsättning</span>
+              <h3>Steg 2</h3>
+              <p>17.30–18.45</p>
+            </a>
+
+            <a class="schedule-card card-steg-3 h-1" href="kurser/steg-3.html">
+              <span class="schedule-badge">Fördjupning</span>
+              <h3>Steg 3</h3>
+              <p>18.45–20.15</p>
+            </a>
+
+            <a class="schedule-card card-musikal h-1" href="kurser/musikal.html">
+              <span class="schedule-badge">Musikal</span>
+              <h3>Musikal</h3>
+              <p>Kvällsgrupp</p>
+            </a>
+          </div>
+
+          <div class="schedule-column">
+            <div class="schedule-day">Tisdag</div>
+
+            <a class="schedule-card card-senior h-1" href="kurser/seniorteater.html">
+              <span class="schedule-badge">Daggrupp</span>
+              <h3>SeniorTeater</h3>
+              <p>Förmiddag</p>
+            </a>
+
+            <a class="schedule-card card-steg-1 h-1" href="kurser/steg-1.html">
+              <span class="schedule-badge">7–10 år</span>
+              <h3>Steg 1</h3>
+              <p>16.30–17.30</p>
+            </a>
+
+            <a class="schedule-card card-steg-3 h-1" href="kurser/steg-3.html">
+              <span class="schedule-badge">Fördjupning</span>
+              <h3>Steg 3</h3>
+              <p>17.30–19.00</p>
+            </a>
+
+            <a class="schedule-card card-vuxen h-1" href="kurser/vuxenteater.html">
+              <span class="schedule-badge">För vuxna</span>
+              <h3>Vuxenteater</h3>
+              <p>Kvällsgrupp</p>
+            </a>
+          </div>
+
+          <div class="schedule-column">
+            <div class="schedule-day">Onsdag</div>
+
+            <a class="schedule-card card-kidz h-1" href="kurser/teaterkidz.html">
+              <span class="schedule-badge">3–6 år</span>
+              <h3>TeaterKidz</h3>
+              <p>Eftermiddag</p>
+            </a>
+
+            <a class="schedule-card card-steg-1 h-1" href="kurser/steg-1.html">
+              <span class="schedule-badge">7–10 år</span>
+              <h3>Steg 1</h3>
+              <p>16.30–17.30</p>
+            </a>
+
+            <a class="schedule-card card-steg-2 h-1" href="kurser/steg-2.html">
+              <span class="schedule-badge">Fortsättning</span>
+              <h3>Steg 2</h3>
+              <p>17.30–18.45</p>
+            </a>
+
+            <a class="schedule-card card-steg-3 h-1" href="kurser/steg-3.html">
+              <span class="schedule-badge">Fördjupning</span>
+              <h3>Steg 3</h3>
+              <p>18.45–20.15</p>
+            </a>
+          </div>
+
+          <div class="schedule-column">
+            <div class="schedule-day">Torsdag</div>
+
+            <a class="schedule-card card-steg-1 h-1" href="kurser/steg-1.html">
+              <span class="schedule-badge">7–10 år</span>
+              <h3>Steg 1</h3>
+              <p>17.45–18.45</p>
+            </a>
+
+            <a class="schedule-card card-steg-2 h-1" href="kurser/steg-2.html">
+              <span class="schedule-badge">Fortsättning</span>
+              <h3>Steg 2</h3>
+              <p>18.45–20.00</p>
+            </a>
+
+            <a class="schedule-card card-musikal h-2" href="kurser/musikal.html">
+              <span class="schedule-badge">Musikal</span>
+              <h3>Musikal</h3>
+              <p>Längre kvällspass</p>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="om">
       <div class="container two-col">
         <div class="panel">
           <p class="section-kicker">Hitta rätt grupp</p>
@@ -153,127 +254,7 @@
           <p>
             Teaterskolan är en plats för kreativitet, mod, gemenskap och utveckling. Vi ser fram emot att välkomna nya deltagare och dela vår passion för teater och musikal med ännu fler.
           </p>
-          <a class="btn btn-primary" href="#kurser">Läs mer om våra grupper</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="kurser">
-      <div class="container">
-        <div class="section-head center">
-          <p class="section-kicker">Vägen genom Teaterskolan</p>
-          <h2>Hitta rätt grupp utifrån ålder, nivå och inriktning.</h2>
-          <p>
-            Våra grupper är uppbyggda för att ge en tydlig väg in i Teaterskolan. Vissa är åldersindelade startgrupper, andra är nästa steg för den som vill fördjupa sig, och några är egna spår för vuxna och seniorer.
-          </p>
-        </div>
-
-        <div class="course-levels">
-          <div class="level-block">
-            <div class="level-header">
-              <span class="level-step">Steg 1</span>
-              <div>
-                <h3>Första steget in</h3>
-                <p>För barn som börjar sin resa i teater, musikal och scenisk trygghet.</p>
-              </div>
-            </div>
-
-            <div class="level-grid level-grid-3">
-              <a class="course-card" href="kurser/teaterkidz.html">
-                <span class="course-badge">3–6 år</span>
-                <h3>TeaterKidz</h3>
-                <p>För de yngsta barnen som vill leka fram fantasi, rörelse och scenisk glädje.</p>
-              </a>
-
-              <a class="course-card" href="kurser/steg-1.html">
-                <span class="course-badge">7–10 år</span>
-                <h3>Steg 1</h3>
-                <p>En första introduktion till teater, samspel, uttryck och trygghet på scen.</p>
-              </a>
-
-              <a class="course-card" href="kurser/steg-2.html">
-                <span class="course-badge">Fortsättning</span>
-                <h3>Steg 2</h3>
-                <p>För deltagare som vill fortsätta utvecklas i scenisk närvaro och ensemblearbete.</p>
-              </a>
-            </div>
-          </div>
-
-          <div class="level-connector" aria-hidden="true">
-            <span></span>
-          </div>
-
-          <div class="level-block">
-            <div class="level-header">
-              <span class="level-step">Steg 2</span>
-              <div>
-                <h3>Fördjupning</h3>
-                <p>För deltagare som vill vidare i uttryck, karaktärsarbete och sceniskt mod.</p>
-              </div>
-            </div>
-
-            <div class="level-grid level-grid-2 centered">
-              <a class="course-card" href="kurser/steg-3.html">
-                <span class="course-badge">Fördjupning</span>
-                <h3>Steg 3</h3>
-                <p>Mer ansvar, större uttryck och en tydligare fördjupning i teaterarbetet.</p>
-              </a>
-
-              <a class="course-card" href="kurser/musikal.html">
-                <span class="course-badge">Sång & scen</span>
-                <h3>Musikal</h3>
-                <p>För deltagare som vill kombinera teater, sång och scenisk energi.</p>
-              </a>
-            </div>
-          </div>
-
-          <div class="level-connector" aria-hidden="true">
-            <span></span>
-          </div>
-
-          <div class="level-block">
-            <div class="level-header">
-              <span class="level-step">Steg 3</span>
-              <div>
-                <h3>Egna vägar vidare</h3>
-                <p>För vuxna och seniorer som vill utvecklas, skapa och stå på scen i en inspirerande gemenskap.</p>
-              </div>
-            </div>
-
-            <div class="level-grid level-grid-2 centered">
-              <a class="course-card" href="kurser/vuxenteater.html">
-                <span class="course-badge">För vuxna</span>
-                <h3>Vuxenteater</h3>
-                <p>För vuxna som vill utvecklas på scen, ha roligt och skapa tillsammans.</p>
-              </a>
-
-              <a class="course-card" href="kurser/seniorteater.html">
-                <span class="course-badge">Gemenskap</span>
-                <h3>SeniorTeater</h3>
-                <p>Teaterglädje, skapande och social gemenskap för äldre deltagare.</p>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section dark-section" id="om">
-      <div class="container two-col">
-        <div>
-          <p class="section-kicker">Om Teaterskolan</p>
-          <h2>Mer än en kursverksamhet</h2>
-          <p>
-            Teaterskolan är en del av Sommarteatern i Ystad och bygger på idén att scenkonst kan skapa både utveckling, mod och tillhörighet. Här får deltagarna inte bara träna teater – de får också träna på att samarbeta, uttrycka sig och ta plats.
-          </p>
-        </div>
-        <div class="panel">
-          <ul class="check-list">
-            <li>Trygga grupper och engagerade ledare</li>
-            <li>Kurser för olika åldrar och nivåer</li>
-            <li>Fokus på glädje, kreativitet och utveckling</li>
-            <li>Föreställningar och redovisningar som målbild</li>
-          </ul>
+          <a class="btn btn-primary" href="#kursschema">Se hela kursschemat</a>
         </div>
       </div>
     </section>
