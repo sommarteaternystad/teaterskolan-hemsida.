@@ -60,39 +60,45 @@ img {
 /* HEADER */
 
 .site-header {
-  position: sticky;
-  top: 0;
+  position: relative;
   z-index: 100;
   background:
-    linear-gradient(rgba(10,10,10,0.45), rgba(10,10,10,0.45)),
+    linear-gradient(rgba(10,10,10,0.38), rgba(10,10,10,0.52)),
     url('../images/hero-bg.png') center/cover no-repeat;
-  backdrop-filter: blur(14px);
-  border-bottom: 1px solid rgba(255,255,255,0.12);
   overflow: visible;
+}
+
+.site-header-large {
+  min-height: 340px;
+}
+
+.site-header-inner {
+  position: relative;
+  padding: 42px 0 92px;
 }
 
 .site-header::after {
   content: "";
   position: absolute;
-  left: -2%;
-  right: -2%;
-  bottom: -46px;
-  height: 92px;
+  left: -3%;
+  right: -3%;
+  bottom: -64px;
+  height: 128px;
   background: #ffffff;
   border-top-left-radius: 62% 100%;
   border-top-right-radius: 38% 100%;
-  transform: rotate(-1deg);
+  transform: rotate(-1.1deg);
   z-index: 0;
 }
 
-.nav-wrap {
+.header-center {
   position: relative;
   z-index: 2;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  gap: 18px;
-  min-height: 92px;
+  justify-content: center;
+  text-align: center;
 }
 
 .brand {
@@ -101,10 +107,29 @@ img {
   gap: 14px;
 }
 
+.brand-centered {
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
 .brand-logo {
   width: 52px;
   height: 52px;
   object-fit: contain;
+}
+
+.brand-logo-large {
+  width: 140px;
+  height: 140px;
+  object-fit: contain;
+  filter: drop-shadow(0 12px 28px rgba(0,0,0,0.22));
+}
+
+.brand-text-centered {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .brand-title {
@@ -114,9 +139,22 @@ img {
   color: #ffffff;
 }
 
+.brand-centered .brand-title {
+  font-size: clamp(34px, 4vw, 52px);
+  letter-spacing: -0.04em;
+}
+
 .brand-subtitle {
   font-size: 13px;
   color: rgba(255,255,255,0.76);
+}
+
+.brand-centered .brand-subtitle {
+  margin-top: 8px;
+  font-size: 15px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.82);
 }
 
 .site-nav {
@@ -125,13 +163,31 @@ img {
   gap: 18px;
 }
 
+.site-nav-centered {
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
 .site-nav a {
-  color: rgba(255,255,255,0.9);
-  font-weight: 600;
+  color: rgba(255,255,255,0.92);
+  font-weight: 700;
+}
+
+.site-nav-centered a {
+  padding: 12px 18px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.10);
+  backdrop-filter: blur(8px);
 }
 
 .site-nav a:hover {
   color: #ffffff;
+}
+
+.site-nav-centered a:hover {
+  background: rgba(255,255,255,0.16);
 }
 
 .menu-toggle {
