@@ -21,7 +21,6 @@
   --radius-md: 20px;
   --radius-sm: 14px;
   --shadow: 0 18px 50px rgba(0, 0, 0, 0.06);
-  --schedule-row: 44px;
 }
 
 * {
@@ -133,10 +132,6 @@ img {
   background: rgba(255,255,255,0.18);
 }
 
-.menu-toggle {
-  display: none;
-}
-
 /* HERO */
 
 .hero {
@@ -148,10 +143,6 @@ img {
   background:
     linear-gradient(120deg, rgba(255,255,255,0.90), rgba(255,255,255,0.96)),
     url('../images/hero-bg.png') center/cover no-repeat;
-}
-
-.hero-course {
-  min-height: 62vh;
 }
 
 .hero-overlay {
@@ -166,10 +157,6 @@ img {
   z-index: 1;
   padding: 72px 0 72px;
   max-width: 860px;
-}
-
-.hero-content.narrow {
-  max-width: 780px;
 }
 
 .eyebrow,
@@ -205,7 +192,6 @@ h3 {
 .hero-text,
 .section-head p,
 .panel p,
-.info-list div,
 .faq-list p,
 .cta-box p {
   color: var(--muted);
@@ -252,7 +238,7 @@ h3 {
   background: #ffffff;
 }
 
-/* CONTENT */
+/* LAYOUT */
 
 .section {
   padding: 92px 0;
@@ -269,12 +255,18 @@ h3 {
 .intro-grid,
 .two-col {
   display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
   gap: 22px;
 }
 
+.intro-grid-two {
+  grid-template-columns: 1fr 1fr;
+}
+
+.two-col {
+  grid-template-columns: 1fr 1fr;
+}
+
 .panel,
-.stat-card,
 .cta-box,
 .faq-list details {
   border: 1px solid var(--line);
@@ -287,27 +279,20 @@ h3 {
   padding: 32px;
 }
 
-.stats-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px;
+.graphic-panel {
+  position: relative;
+  overflow: hidden;
+  background:
+    linear-gradient(rgba(255,255,255,0.80), rgba(255,255,255,0.84)),
+    url('../images/hero-bg.png') center/cover no-repeat;
 }
 
-.stat-card {
-  background: #ffffff;
-  border-radius: var(--radius-md);
-  padding: 24px;
-}
-
-.stat-number {
-  display: block;
-  font-size: 32px;
-  font-weight: 800;
-  color: #111111;
-}
-
-.stat-label {
-  color: var(--muted);
+.graphic-panel::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(135deg, rgba(255,255,255,0.12), rgba(255,255,255,0));
 }
 
 .course-grid {
@@ -325,83 +310,81 @@ h3 {
   background: #faf9f6;
 }
 
-.check-list {
-  margin: 0;
-  padding-left: 18px;
-  color: var(--muted);
+/* SIMPLE SCHEDULE */
+
+.schedule-simple {
+  display: grid;
+  gap: 12px;
 }
 
-.check-list li + li {
-  margin-top: 10px;
-}
-
-/* ===== NY STABIL KURSSCHEMA-LAYOUT ===== */
-
-.schedule-board {
+.schedule-grid-5 {
   display: grid;
   grid-template-columns: 90px repeat(4, minmax(0, 1fr));
   gap: 18px;
-  align-items: start;
 }
 
-.schedule-time-labels {
-  position: relative;
-  height: 760px;
-  margin-top: 64px;
+.schedule-table-head {
+  margin-bottom: 6px;
 }
 
-.time-label {
-  position: absolute;
-  left: 0;
+.schedule-head-cell {
+  font-size: 26px;
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  padding: 0 4px;
+}
+
+.schedule-head-cell.time-cell {
   font-size: 14px;
   font-weight: 700;
   color: var(--muted-2);
-  transform: translateY(-50%);
+  display: flex;
+  align-items: flex-end;
+  padding-bottom: 8px;
 }
 
-.schedule-day-column {
-  background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(249,249,247,0.98));
-  border: 1px solid var(--line);
-  border-radius: 28px;
-  box-shadow: var(--shadow);
-  padding: 18px;
+.schedule-row {
+  align-items: stretch;
 }
 
-.schedule-day-title {
-  height: 64px;
+.schedule-time {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--muted-2);
   display: flex;
   align-items: center;
-  font-size: 28px;
-  font-weight: 900;
-  letter-spacing: -0.03em;
-  padding: 0 6px;
+  justify-content: flex-start;
 }
 
-.schedule-day-grid {
-  position: relative;
+.schedule-slot {
+  min-height: 120px;
+  display: flex;
+  gap: 12px;
+  align-items: stretch;
+}
+
+.schedule-slot.empty {
+  min-height: 120px;
+}
+
+.schedule-slot-split {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  grid-auto-rows: 1px;
-  column-gap: 16px;
-  height: 760px;
-  padding-top: 4px;
-  border-radius: 18px;
-  background-image: linear-gradient(to bottom, rgba(22,22,22,0.05) 1px, transparent 1px);
-  background-size: 100% 44px;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
 }
 
 .schedule-card {
+  flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  gap: 6px;
+  gap: 8px;
   border-radius: 22px;
-  padding: 14px 14px 12px;
+  padding: 16px;
   color: #ffffff;
   box-shadow: 0 18px 36px rgba(0,0,0,0.10);
   transition: transform 0.2s ease;
   overflow: hidden;
-  z-index: 2;
 }
 
 .schedule-card:hover {
@@ -411,7 +394,7 @@ h3 {
 .schedule-card h3 {
   margin: 0;
   color: #ffffff;
-  font-size: 22px;
+  font-size: 26px;
   line-height: 1;
 }
 
@@ -420,7 +403,7 @@ h3 {
   color: rgba(255,255,255,0.94);
   font-weight: 600;
   font-size: 14px;
-  line-height: 1.25;
+  line-height: 1.3;
 }
 
 .schedule-badge {
@@ -433,54 +416,18 @@ h3 {
   font-size: 11px;
   font-weight: 800;
   border: 1px solid rgba(255,255,255,0.18);
-  margin-bottom: 2px;
 }
 
-/* Bredd i kolumn */
-.schedule-card.full {
-  grid-column: 1 / -1;
+.schedule-card.compact h3 {
+  font-size: 20px;
 }
 
-.schedule-card.left {
-  grid-column: 1 / 2;
+.schedule-card.tall {
+  min-height: 252px;
 }
 
-.schedule-card.right {
-  grid-column: 2 / 3;
-}
+/* COLORS */
 
-.schedule-card.center-half {
-  grid-column: 1 / -1;
-  width: calc(50% - 8px);
-  justify-self: center;
-}
-
-/* Starttider */
-.row-1100 { grid-row-start: 1; }
-.row-1630 { grid-row-start: 331; }
-.row-1700 { grid-row-start: 375; }
-.row-1730 { grid-row-start: 419; }
-.row-1745 { grid-row-start: 441; }
-.row-1845 { grid-row-start: 529; }
-.row-1900 { grid-row-start: 551; }
-
-/* Tidslängder */
-.span-45  { grid-row-end: span 45; }
-.span-60  { grid-row-end: span 60; }
-.span-75  { grid-row-end: span 75; }
-.span-90  { grid-row-end: span 90; }
-.span-180 { grid-row-end: span 180; }
-
-/* Vänsterspalten med tider */
-.row-1100.time-label { top: 1px; }
-.row-1630.time-label { top: 331px; }
-.row-1700.time-label { top: 375px; }
-.row-1730.time-label { top: 419px; }
-.row-1745.time-label { top: 441px; }
-.row-1845.time-label { top: 529px; }
-.row-1900.time-label { top: 551px; }
-
-/* Färger */
 .card-kidz { background: var(--kidz); }
 .card-steg-1 { background: var(--steg-1); }
 .card-steg-2 { background: var(--steg-2); }
@@ -488,32 +435,6 @@ h3 {
 .card-musikal { background: var(--musikal); }
 .card-senior { background: var(--senior); }
 .card-vuxen { background: var(--vuxen); }
-
-@media (max-width: 1100px) {
-  .schedule-board {
-    grid-template-columns: 90px repeat(2, minmax(280px, 1fr));
-    overflow-x: auto;
-  }
-}
-
-@media (max-width: 640px) {
-  .schedule-board {
-    display: block;
-    overflow-x: auto;
-  }
-
-  .schedule-board > * {
-    min-width: 980px;
-  }
-
-  .schedule-card h3 {
-    font-size: 20px;
-  }
-
-  .schedule-card p {
-    font-size: 13px;
-  }
-}
 
 /* FAQ / CTA / FOOTER */
 
@@ -602,6 +523,24 @@ h3 {
 
 /* RESPONSIVE */
 
+@media (max-width: 1000px) {
+  .intro-grid-two,
+  .two-col,
+  .course-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .schedule-grid-5 {
+    grid-template-columns: 70px repeat(4, minmax(220px, 1fr));
+    min-width: 1080px;
+  }
+
+  .schedule-simple {
+    overflow-x: auto;
+    padding-bottom: 8px;
+  }
+}
+
 @media (max-width: 820px) {
   .site-header-home {
     min-height: 340px;
@@ -630,17 +569,10 @@ h3 {
     padding: 0 18px;
   }
 
-  .intro-grid,
-  .two-col,
   .cta-box,
   .footer-wrap {
-    grid-template-columns: 1fr;
     flex-direction: column;
     align-items: flex-start;
-  }
-
-  .course-grid {
-    grid-template-columns: 1fr;
   }
 }
 
@@ -703,11 +635,9 @@ h3 {
     font-size: 16px;
   }
 
-  .hero-actions,
-  .stats-grid,
-  .course-grid {
-    grid-template-columns: 1fr;
+  .hero-actions {
     display: grid;
+    grid-template-columns: 1fr;
   }
 
   .btn {
@@ -715,8 +645,7 @@ h3 {
   }
 
   .panel,
-  .cta-box,
-  .stat-card {
+  .cta-box {
     padding: 20px;
   }
 
@@ -724,8 +653,16 @@ h3 {
     padding: 64px 0;
   }
 
-  .schedule-grid {
+  .schedule-grid-5 {
     min-width: 980px;
+  }
+
+  .schedule-card h3 {
+    font-size: 22px;
+  }
+
+  .schedule-card p {
+    font-size: 13px;
   }
 
   .site-footer::before {
