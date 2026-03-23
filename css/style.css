@@ -310,120 +310,151 @@ h3 {
   background: #faf9f6;
 }
 
-/* SIMPLE SCHEDULE */
+/* ===== AFFICHSCHEMA / POSTER SCHEDULE ===== */
 
-.schedule-simple {
+.schedule-simple,
+.schedule-wrapper,
+.schedule-board {
+  display: none;
+}
+
+.poster-schedule {
   display: grid;
-  gap: 12px;
+  grid-template-columns: 1.05fr 1.4fr 0.9fr 1.05fr;
+  gap: 22px;
+  align-items: end;
 }
 
-.schedule-grid-5 {
-  display: grid;
-  grid-template-columns: 90px repeat(4, minmax(0, 1fr));
-  gap: 18px;
+.poster-day {
+  position: relative;
+  min-height: 640px;
+  padding: 18px;
+  border-radius: 28px;
+  overflow: visible;
+  background:
+    linear-gradient(rgba(20, 8, 48, 0.72), rgba(20, 8, 48, 0.72)),
+    url('../images/hero-bg.png') center/cover no-repeat;
+  box-shadow: var(--shadow);
 }
 
-.schedule-table-head {
-  margin-bottom: 6px;
+.poster-day.monday,
+.poster-day.tuesday,
+.poster-day.wednesday,
+.poster-day.thursday {
+  background:
+    linear-gradient(rgba(39, 20, 79, 0.72), rgba(39, 20, 79, 0.72)),
+    url('../images/hero-bg.png') center/cover no-repeat;
 }
 
-.schedule-head-cell {
-  font-size: 26px;
+.poster-day-title {
+  margin: 0 0 16px;
+  text-align: center;
+  font-size: 24px;
   font-weight: 900;
-  letter-spacing: -0.03em;
-  padding: 0 4px;
-}
-
-.schedule-head-cell.time-cell {
-  font-size: 14px;
-  font-weight: 700;
-  color: var(--muted-2);
-  display: flex;
-  align-items: flex-end;
-  padding-bottom: 8px;
-}
-
-.schedule-row {
-  align-items: stretch;
-}
-
-.schedule-time {
-  font-size: 14px;
-  font-weight: 700;
-  color: var(--muted-2);
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-}
-
-.schedule-slot {
-  min-height: 120px;
-  display: flex;
-  gap: 12px;
-  align-items: stretch;
-}
-
-.schedule-slot.empty {
-  min-height: 120px;
-}
-
-.schedule-slot-split {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
-}
-
-.schedule-card {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  gap: 8px;
-  border-radius: 22px;
-  padding: 16px;
   color: #ffffff;
-  box-shadow: 0 18px 36px rgba(0,0,0,0.10);
-  transition: transform 0.2s ease;
-  overflow: hidden;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
 }
 
-.schedule-card:hover {
+.poster-card {
+  position: absolute;
+  border-radius: 24px;
+  padding: 14px 14px 12px;
+  color: #ffffff;
+  box-shadow: 0 16px 34px rgba(0,0,0,0.16);
+  border: 4px solid rgba(255,255,255,0.9);
+  transition: transform 0.2s ease;
+}
+
+.poster-card:hover {
   transform: translateY(-2px);
 }
 
-.schedule-card h3 {
-  margin: 0;
-  color: #ffffff;
-  font-size: 26px;
+.poster-card h4 {
+  margin: 0 0 6px;
+  font-size: 22px;
   line-height: 1;
+  color: #ffffff;
+  font-weight: 900;
 }
 
-.schedule-card p {
+.poster-card p {
   margin: 0;
-  color: rgba(255,255,255,0.94);
-  font-weight: 600;
   font-size: 14px;
   line-height: 1.3;
+  color: rgba(255,255,255,0.95);
+  font-weight: 600;
 }
 
-.schedule-badge {
+.poster-card .schedule-badge {
   display: inline-flex;
-  align-self: flex-start;
+  margin-bottom: 8px;
   padding: 6px 10px;
   border-radius: 999px;
   background: rgba(255,255,255,0.16);
   color: #ffffff;
   font-size: 11px;
   font-weight: 800;
-  border: 1px solid rgba(255,255,255,0.18);
+  border: 1px solid rgba(255,255,255,0.16);
 }
 
-.schedule-card.compact h3 {
-  font-size: 20px;
+/* Färger */
+.poster-card.card-kidz { background: var(--kidz); }
+.poster-card.card-steg-1 { background: var(--steg-1); }
+.poster-card.card-steg-2 { background: var(--steg-2); }
+.poster-card.card-steg-3 { background: var(--steg-3); }
+.poster-card.card-musikal { background: var(--musikal); }
+.poster-card.card-senior { background: var(--senior); }
+.poster-card.card-vuxen { background: var(--vuxen); }
+
+/* Måndag */
+.p-m-steg1 { top: 84px; left: 24px; width: 118px; height: 108px; }
+.p-m-steg2 { top: 164px; left: 24px; width: 118px; height: 114px; }
+.p-m-steg3 { top: 266px; left: 24px; width: 118px; height: 114px; }
+.p-m-musikal-gul { top: 162px; right: 24px; width: 140px; height: 118px; }
+.p-m-musikal-lila { top: 288px; right: 24px; width: 140px; height: 118px; }
+
+/* Tisdag */
+.p-t-senior { top: -88px; left: 50%; transform: translateX(-50%); width: 132px; height: 116px; z-index: 3; }
+.p-t-steg1 { top: 84px; left: 24px; width: 118px; height: 108px; }
+.p-t-steg3 { top: 166px; left: 24px; width: 118px; height: 116px; }
+.p-t-steg2 { top: 290px; left: 24px; width: 118px; height: 108px; }
+.p-t-vuxen-a { top: 130px; left: 154px; width: 132px; height: 118px; }
+.p-t-kidz { top: 130px; right: 24px; width: 128px; height: 64px; }
+.p-t-vuxen-b { top: 198px; right: 24px; width: 132px; height: 118px; }
+
+/* Onsdag */
+.p-o-steg1 { top: 84px; left: 24px; right: 24px; height: 108px; }
+.p-o-steg2 { top: 166px; left: 24px; right: 24px; height: 114px; }
+.p-o-steg3 { top: 286px; left: 24px; right: 24px; height: 114px; }
+
+/* Torsdag */
+.p-to-steg1 { top: 196px; left: 24px; width: 132px; height: 86px; }
+.p-to-steg2 { top: 290px; left: 24px; width: 132px; height: 96px; }
+.p-to-musikal { top: 136px; right: 24px; width: 132px; height: 232px; }
+
+@media (max-width: 1200px) {
+  .poster-schedule {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .poster-day {
+    min-height: 620px;
+  }
 }
 
-.schedule-card.tall {
-  min-height: 252px;
+@media (max-width: 700px) {
+  .poster-schedule {
+    grid-template-columns: 1fr;
+  }
+
+  .poster-day {
+    min-height: 560px;
+  }
+
+  .p-t-senior {
+    top: 24px;
+  }
 }
 
 /* COLORS */
