@@ -818,3 +818,154 @@ h3 {
     top: 24px;
   }
 }
+/* ===== POSTER-SCHEMA, REN VERSION ===== */
+
+.schedule-simple,
+.schedule-wrapper,
+.schedule-board {
+  display: none;
+}
+
+.poster-schedule {
+  display: grid;
+  grid-template-columns: 1.05fr 1.4fr 0.9fr 1.05fr;
+  gap: 22px;
+  align-items: end;
+}
+
+.poster-day {
+  position: relative;
+  min-height: 650px;
+  padding: 18px;
+  border-radius: 28px;
+  overflow: visible;
+  background:
+    linear-gradient(rgba(39, 20, 79, 0.74), rgba(39, 20, 79, 0.74)),
+    url('../images/hero-bg.png') center/cover no-repeat;
+  box-shadow: var(--shadow);
+}
+
+.poster-day-title {
+  margin: 0 0 16px;
+  text-align: center;
+  font-size: 24px;
+  font-weight: 900;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.poster-card {
+  position: absolute;
+  border-radius: 24px;
+  padding: 12px 14px;
+  color: #ffffff;
+  box-shadow: 0 16px 34px rgba(0,0,0,0.16);
+  border: 4px solid rgba(255,255,255,0.92);
+  transition: transform 0.2s ease;
+}
+
+.poster-card:hover {
+  transform: translateY(-2px);
+}
+
+.poster-card h4 {
+  margin: 0 0 6px;
+  font-size: 18px;
+  line-height: 1;
+  color: #ffffff;
+  font-weight: 900;
+}
+
+.poster-card p {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.25;
+  color: rgba(255,255,255,0.96);
+  font-weight: 600;
+}
+
+.poster-card .leaders {
+  margin-top: 4px;
+  font-size: 12px;
+  line-height: 1.25;
+  color: rgba(255,255,255,0.92);
+}
+
+.poster-card .schedule-badge {
+  display: none;
+}
+
+/* Färger */
+.poster-card.card-kidz { background: var(--kidz); }
+.poster-card.card-steg-1 { background: var(--steg-1); }
+.poster-card.card-steg-2 { background: var(--steg-2); }
+.poster-card.card-steg-3 { background: var(--steg-3); }
+.poster-card.card-musikal { background: var(--musikal); }
+.poster-card.card-senior { background: var(--senior); }
+.poster-card.card-vuxen { background: var(--vuxen); }
+.poster-card.card-sang { background: #6b6b6b; }
+
+/* Gemensamma höjdlinjer */
+:root {
+  --y-1100: 78px;
+  --y-1615: 150px;
+  --y-1630: 165px;
+  --y-1700: 195px;
+  --y-1730: 255px;
+  --y-1745: 270px;
+  --y-1845: 360px;
+  --y-1900: 375px;
+}
+
+/* Måndag */
+.p-m-steg1 { top: var(--y-1630); left: 24px; width: 118px; height: 98px; }
+.p-m-steg2 { top: var(--y-1730); left: 24px; width: 118px; height: 106px; }
+.p-m-steg3 { top: var(--y-1845); left: 24px; width: 118px; height: 106px; }
+.p-m-musikal-gul { top: var(--y-1730); right: 24px; width: 140px; height: 118px; }
+.p-m-musikal-lila { top: var(--y-1900); right: 24px; width: 140px; height: 118px; }
+
+/* Tisdag */
+.p-t-senior { top: -86px; left: 50%; transform: translateX(-50%); width: 132px; height: 112px; z-index: 3; }
+.p-t-sang1 { top: var(--y-1615); left: 24px; width: 110px; height: 58px; }
+.p-t-steg1 { top: var(--y-1630); left: 140px; width: 120px; height: 98px; }
+.p-t-vuxen-a { top: var(--y-1700); left: 24px; width: 124px; height: 108px; }
+.p-t-kidz { top: var(--y-1700); left: 266px; width: 118px; height: 58px; }
+.p-t-sang2 { top: var(--y-1700); right: 24px; width: 110px; height: 58px; }
+.p-t-steg3 { top: var(--y-1730); left: 140px; width: 120px; height: 112px; }
+.p-t-vuxen-b { top: var(--y-1745); right: 24px; width: 128px; height: 116px; }
+.p-t-steg2 { top: var(--y-1900); left: 140px; width: 120px; height: 96px; }
+
+/* Onsdag */
+.p-o-steg1 { top: var(--y-1630); left: 24px; right: 24px; height: 98px; }
+.p-o-steg2 { top: var(--y-1730); left: 24px; right: 24px; height: 106px; }
+.p-o-steg3 { top: var(--y-1845); left: 24px; right: 24px; height: 106px; }
+
+/* Torsdag */
+.p-to-steg1 { top: var(--y-1745); left: 24px; width: 132px; height: 82px; }
+.p-to-steg2 { top: var(--y-1845); left: 24px; width: 132px; height: 92px; }
+.p-to-musikal { top: var(--y-1700); right: 24px; width: 132px; height: 226px; }
+
+@media (max-width: 1200px) {
+  .poster-schedule {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .poster-day {
+    min-height: 650px;
+  }
+}
+
+@media (max-width: 700px) {
+  .poster-schedule {
+    grid-template-columns: 1fr;
+  }
+
+  .poster-day {
+    min-height: 620px;
+  }
+
+  .p-t-senior {
+    top: 24px;
+  }
+}
