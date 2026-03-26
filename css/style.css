@@ -961,7 +961,7 @@ h3 {
   display: grid;
   grid-template-columns: 1fr 1.35fr 0.9fr 1fr;
   gap: 14px;
-  align-items: start;
+  align-items: stretch;
 }
 
 .ks-day {
@@ -971,6 +971,15 @@ h3 {
   border-radius: 20px;
   padding: 12px 10px;
   box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+.ks-cols {
+  flex: 1;
+  display: flex;
+  gap: 4px;
+  align-items: flex-start;
 }
 
 .ks-day-title {
@@ -991,16 +1000,11 @@ h3 {
   letter-spacing: 0.05em;
 }
 
-.ks-cols {
-  display: flex;
-  gap: 4px;
-  align-items: flex-start;
-}
 
 .ks-col {
   display: flex;
   flex-direction: column;
-  width: 66px;
+  width: 90px;
   flex-shrink: 0;
 }
 
