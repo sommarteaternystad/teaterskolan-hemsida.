@@ -187,22 +187,23 @@
   <script src="js/site.js"></script>
   <script>
   (function(){
-    var PX=1.6,GAP=4,CARD_W=90,ORIGIN=16*60+15,EVENING_END=20*60+30;
-    var EVENING_H=(EVENING_END-ORIGIN)*PX;
+    var PX=1.6,GAP=3,ORIGIN=16*60,EVENING_END=20*60+30;
+    var EVENING_H=(EVENING_END-ORIGIN)*PX; // 270min * 1.6 = 432px
+    var HOURS=[16,17,18,19,20];
     function toMins(s){var p=s.split('.');return parseInt(p[0])*60+parseInt(p[1]);}
-    function cardH(s,e){return Math.max((toMins(e)-toMins(s))*PX,32);}
+    function cardH(s,e){return Math.max((toMins(e)-toMins(s))*PX-GAP,24);}
     function makeCard(item){
       var a=document.createElement('a');
       a.className='ks-card '+item.c;
       a.href=item.url||'#';
-      a.style.cssText='width:'+CARD_W+'px;height:'+cardH(item.s,item.e)+'px';
+      a.style.height=cardH(item.s,item.e)+'px';
       a.innerHTML='<span class="ks-t">'+item.s+'\u2013'+item.e+'</span><span class="ks-n">'+item.n+'</span><span class="ks-l">'+item.l+'</span>';
       return a;
     }
     function makeCol(cards){
       var col=document.createElement('div');
       col.className='ks-col';
-      col.style.cssText='gap:0;height:'+EVENING_H+'px;flex-shrink:0;display:flex;flex-direction:column';
+      col.style.cssText='height:'+EVENING_H+'px;flex:0 0 calc((100% - '+(4*(maxCols-1))+'px) / '+maxCols+');min-width:0;display:flex;flex-direction:column;overflow:hidden';
       var cursor=ORIGIN;
       cards.forEach(function(item){
         var startM=toMins(item.s);
@@ -233,9 +234,7 @@
       ]},
       {name:'Tisdag',daytime:{s:'11.00',e:'12.30',n:'SeniorTeater',l:'Hannes',c:'ks-senior',url:'kurser/seniorteater.html'},evening:[
         [
-          {s:'16.15',e:'17.00',n:'S\u00e5nggrupp 1',l:'Anna',c:'ks-sang',url:'#'},
-          {s:'17.00',e:'18.30',n:'Steg Vuxen A',l:'Hannes, Gustaf',c:'ks-vuxen',url:'kurser/vuxenteater.html'},
-          {s:'19.00',e:'20.15',n:'Steg 2',l:'Adrian, Zeb, Signe',c:'ks-steg2',url:'kurser/steg-2.html'}
+          {s:'17.00',e:'18.30',n:'Steg Vuxen A',l:'Hannes, Gustaf',c:'ks-vuxen',url:'kurser/vuxenteater.html'}
         ],
         [
           {s:'16.30',e:'17.30',n:'Steg 1',l:'Hilda, Adrian',c:'ks-steg1',url:'kurser/steg-1.html'},
@@ -243,8 +242,7 @@
           {s:'19.00',e:'20.15',n:'Steg 2',l:'Adrian, Zeb, Signe',c:'ks-steg2',url:'kurser/steg-2.html'}
         ],
         [
-          {s:'17.00',e:'17.45',n:'S\u00e5nggrupp 2',l:'Anna',c:'ks-sang',url:'#'},
-          {s:'17.00',e:'17.45',n:'TeaterKidz',l:'Anna, Isabella G',c:'ks-kidz',url:'kurser/teaterkidz.html'},
+          {s:'17.00',e:'17.45',n:'TeaterKidz',l:'Anna G, Isabella G',c:'ks-kidz',url:'kurser/teaterkidz.html'},
           {s:'17.45',e:'19.15',n:'Steg Vuxen B',l:'Anna, Nicole, Gustaf, Isabella M',c:'ks-vuxen',url:'kurser/vuxenteater.html'}
         ]
       ]},
@@ -265,6 +263,7 @@
         ]
       ]}
     ];
+    var maxCols=Math.max.apply(null,days.map(function(d){return d.evening.length;}));
     var grid=document.getElementById('kursschema-grid');
     if(!grid)return;
     days.forEach(function(day){
@@ -276,17 +275,57 @@
       panel.appendChild(title);
       if(day.daytime){
         var dc=makeCard(day.daytime);
-        dc.style.width=CARD_W+'px';
-        panel.appendChild(dc);
+        dc.classList.add('ks-daytime-card');
+        dc.style.width='calc((100% - '+(4*(maxCols-1))+'px) / '+maxCols+')';
+        var dtWrap=document.createElement('div');
+        dtWrap.style.cssText='display:flex;gap:5px';
+        var dtAxis=document.createElement('div');
+        dtAxis.style.cssText='width:22px;flex-shrink:0';
+        dtWrap.appendChild(dtAxis);
+        var dtCols=document.createElement('div');
+        dtCols.style.cssText='flex:1;display:flex;justify-content:center';
+        dtCols.appendChild(dc);
+        dtWrap.appendChild(dtCols);
+        panel.appendChild(dtWrap);
         var dots=document.createElement('div');
         dots.className='ks-dots';
         dots.textContent='\u00b7 \u00b7 \u00b7';
         panel.appendChild(dots);
       }
+      // Evening area: time axis + columns
+      var evWrap=document.createElement('div');
+      evWrap.className='ks-ev-wrap';
+      // Time axis
+      var axis=document.createElement('div');
+      axis.className='ks-axis';
+      axis.style.cssText='position:relative;height:'+EVENING_H+'px';
+      HOURS.forEach(function(h){
+        var y=(h*60-ORIGIN)*PX;
+        var lbl=document.createElement('span');
+        lbl.className='ks-hlbl';
+        lbl.style.cssText='position:absolute;top:'+y+'px'+(h>16?';transform:translateY(-50%)':'');
+        lbl.textContent=h+'\u2019';
+        axis.appendChild(lbl);
+      });
+      evWrap.appendChild(axis);
+      // Columns wrapper with hour lines
+      var colsWrap=document.createElement('div');
+      colsWrap.className='ks-cols-wrap';
+      colsWrap.style.cssText='position:relative;flex:1;height:'+EVENING_H+'px';
+      HOURS.forEach(function(h){
+        var y=(h*60-ORIGIN)*PX;
+        var line=document.createElement('div');
+        line.className='ks-hline';
+        line.style.cssText='position:absolute;top:'+y+'px;left:0;right:0;height:1px';
+        colsWrap.appendChild(line);
+      });
       var cols=document.createElement('div');
       cols.className='ks-cols';
+      cols.style.cssText='position:relative;z-index:1;height:'+EVENING_H+'px;display:flex;gap:4px;justify-content:center';
       day.evening.forEach(function(colCards){cols.appendChild(makeCol(colCards));});
-      panel.appendChild(cols);
+      colsWrap.appendChild(cols);
+      evWrap.appendChild(colsWrap);
+      panel.appendChild(evWrap);
       grid.appendChild(panel);
     });
   })();
