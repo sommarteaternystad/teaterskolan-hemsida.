@@ -187,31 +187,35 @@
   <script src="js/site.js"></script>
   <script>
   (function(){
-    var PX=1.4,GAP=4,CARD_W=66,ORIGIN=16*60+15;
+    var PX=1.6,GAP=4,CARD_W=90,ORIGIN=16*60+15,EVENING_END=20*60+30;
+    var EVENING_H=(EVENING_END-ORIGIN)*PX;
     function toMins(s){var p=s.split('.');return parseInt(p[0])*60+parseInt(p[1]);}
-    function cardH(s,e){return Math.max((toMins(e)-toMins(s))*PX,30);}
+    function cardH(s,e){return Math.max((toMins(e)-toMins(s))*PX,32);}
     function makeCard(item){
       var a=document.createElement('a');
       a.className='ks-card '+item.c;
       a.href=item.url||'#';
       a.style.cssText='width:'+CARD_W+'px;height:'+cardH(item.s,item.e)+'px';
-      a.innerHTML='<span class="ks-t">'+item.s+'&ndash;'+item.e+'</span><span class="ks-n">'+item.n+'</span><span class="ks-l">'+item.l+'</span>';
+      a.innerHTML='<span class="ks-t">'+item.s+'\u2013'+item.e+'</span><span class="ks-n">'+item.n+'</span><span class="ks-l">'+item.l+'</span>';
       return a;
     }
     function makeCol(cards){
       var col=document.createElement('div');
       col.className='ks-col';
-      col.style.gap=GAP+'px';
+      col.style.cssText='gap:0;height:'+EVENING_H+'px;flex-shrink:0;display:flex;flex-direction:column';
       var cursor=ORIGIN;
       cards.forEach(function(item){
         var startM=toMins(item.s);
         if(startM>cursor){
           var sp=document.createElement('div');
-          sp.style.cssText='height:'+((startM-cursor)*PX)+'px;flex-shrink:0';
+          sp.style.cssText='height:'+((startM-cursor)*PX)+'px;flex-shrink:0;min-height:0';
           col.appendChild(sp);
         }
         col.appendChild(makeCard(item));
-        cursor=toMins(item.e)+GAP/PX;
+        cursor=toMins(item.e);
+        var gapSp=document.createElement('div');
+        gapSp.style.cssText='height:'+GAP+'px;flex-shrink:0';
+        col.appendChild(gapSp);
       });
       return col;
     }
