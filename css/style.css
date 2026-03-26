@@ -613,7 +613,7 @@ h3 {
   display: none;
 }
 
-/* Färger */
+/* FÃ¤rger */
 .poster-card.card-kidz { background: var(--kidz); }
 .poster-card.card-steg-1 { background: var(--steg-1); }
 .poster-card.card-steg-2 { background: var(--steg-2); }
@@ -623,7 +623,7 @@ h3 {
 .poster-card.card-vuxen { background: var(--vuxen); }
 .poster-card.card-sang { background: #6b6b6b; }
 
-/* Gemensamma höjdlinjer */
+/* Gemensamma hÃ¶jdlinjer */
 :root {
   --y-1100: 78px;
   --y-1615: 150px;
@@ -635,7 +635,7 @@ h3 {
   --y-1900: 375px;
 }
 
-/* Måndag */
+/* MÃ¥ndag */
 .p-m-steg1 { top: var(--y-1630); left: 24px; width: 118px; height: 98px; }
 .p-m-steg2 { top: var(--y-1730); left: 24px; width: 118px; height: 106px; }
 .p-m-steg3 { top: var(--y-1845); left: 24px; width: 118px; height: 106px; }
@@ -686,7 +686,7 @@ h3 {
     top: 24px;
   }
 }
-/* ===== STABILT SCHEMA UTAN ÖVERLAPP ===== */
+/* ===== STABILT SCHEMA UTAN Ã–VERLAPP ===== */
 
 .poster-schedule,
 .schedule-simple,
@@ -782,7 +782,7 @@ h3 {
 .col-3 { grid-column: 3 / 4; }
 .col-1-2 { grid-column: 1 / -1; }
 
-/* Färger */
+/* FÃ¤rger */
 .day-card.card-kidz { background: var(--kidz); }
 .day-card.card-steg-1 { background: var(--steg-1); }
 .day-card.card-steg-2 { background: var(--steg-2); }
@@ -817,5 +817,140 @@ h3 {
   .col-1-2 {
     grid-column: 1 / -1;
     grid-row: auto !important;
+  }
+}
+
+/* ===== NYTT KURSSCHEMA ===== */
+
+.week-schedule {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr 0.9fr 1fr;
+  gap: 22px;
+  align-items: start;
+}
+
+.sday-panel {
+  background:
+    linear-gradient(rgba(39, 20, 79, 0.74), rgba(39, 20, 79, 0.74)),
+    url('../images/hero-bg.png') center/cover no-repeat;
+  border-radius: 28px;
+  padding: 18px;
+  box-shadow: var(--shadow);
+}
+
+.sday-title {
+  margin: 0 0 14px;
+  text-align: center;
+  font-size: 22px;
+  font-weight: 900;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.sday-courses {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.sday-row {
+  display: flex;
+  gap: 8px;
+}
+
+.sday-row-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.sday-row-three {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 8px;
+}
+
+/* Half-left: only left half filled (for Torsdag Steg 1 & 2) */
+.sday-row-half-left {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.sday-row-half-left .sday-card {
+  grid-column: 1 / 2;
+}
+
+.sday-card {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  border-radius: 18px;
+  padding: 11px 13px;
+  color: #ffffff;
+  border: 3px solid rgba(255,255,255,0.88);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.14);
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+  text-decoration: none;
+  min-width: 0;
+  flex: 1;
+}
+
+.sday-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 32px rgba(0,0,0,0.22);
+}
+
+.scard-time {
+  font-size: 11px;
+  font-weight: 700;
+  color: rgba(255,255,255,0.85);
+  letter-spacing: 0.02em;
+}
+
+.scard-name {
+  font-size: 15px;
+  font-weight: 900;
+  color: #ffffff;
+  line-height: 1.1;
+}
+
+.scard-leaders {
+  font-size: 11px;
+  color: rgba(255,255,255,0.88);
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+/* Colors */
+.sday-card.card-kidz    { background: var(--kidz); }
+.sday-card.card-steg-1  { background: var(--steg-1); }
+.sday-card.card-steg-2  { background: var(--steg-2); }
+.sday-card.card-steg-3  { background: var(--steg-3); }
+.sday-card.card-musikal { background: var(--musikal); }
+.sday-card.card-senior  { background: var(--senior); }
+.sday-card.card-vuxen   { background: var(--vuxen); }
+.sday-card.card-sang    { background: #6b6b6b; }
+
+@media (max-width: 1200px) {
+  .week-schedule {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 680px) {
+  .week-schedule {
+    grid-template-columns: 1fr;
+  }
+
+  .sday-row-split,
+  .sday-row-three,
+  .sday-row-half-left {
+    grid-template-columns: 1fr;
+  }
+
+  .sday-row-half-left .sday-card {
+    grid-column: 1 / -1;
   }
 }
