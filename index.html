@@ -173,13 +173,53 @@
   </main>
 
   <footer class="site-footer">
-    <div class="container footer-wrap">
-      <div>
-        <strong>Teaterskolan</strong><br>
-        Sommarteatern i Ystad
+    <div class="footer-wave">
+      <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,0 C200,70 400,10 650,55 C900,100 1100,15 1300,50 C1380,65 1420,35 1440,45 L1440,0 Z" fill="#ffffff"/>
+      </svg>
+    </div>
+    <div class="container footer-inner">
+
+      <div class="footer-brand">
+        <img src="images/logo.png" alt="Teaterskolan Sommarteatern i Ystad" class="footer-logo">
+        <address class="footer-address">
+          Björnstjernegatan 18<br>
+          271 39 Ystad<br>
+          <span class="footer-address-note">KFUM-Huset</span>
+        </address>
+        <p class="footer-contact">
+          Verksamhetschef<br>
+          <strong>Hannes Nilsson</strong><br>
+          <a href="mailto:hannes.nilsson@sommarteaternystad.com">hannes.nilsson@sommarteaternystad.com</a>
+        </p>
       </div>
-      <div>
-        <a href="mailto:hannes.nilsson@sommarteaternystad.com">hannes.nilsson@sommarteaternystad.com</a>
+
+      <nav class="footer-nav">
+        <h4 class="footer-nav-title">Utforska</h4>
+        <a href="#">Vision &amp; Policy</a>
+        <a href="#">Om Sommarteatern</a>
+        <a href="#">Avgifter</a>
+        <a href="https://myclub.se" target="_blank" rel="noopener">MyClub</a>
+      </nav>
+
+      <div class="footer-partners">
+        <div class="footer-partner">
+          <img src="images/Fritidskortetlogo.png" alt="Fritidskortet" class="partner-logo">
+          <p>Hos oss kan du använda fritidskortet.</p>
+        </div>
+        <div class="footer-partner">
+          <span class="myclub-logo-text"><span>my</span><span class="myclub-arc"></span><span>lub</span></span>
+          <div>
+            <h5 class="partner-heading">Kalender</h5>
+            <p>Logga in på <a href="https://myclub.se" target="_blank" rel="noopener">MyClub.se</a> för att hitta gruppens kalender samt möjlighet att nå repetitionsmaterial.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <p>© 2025 Sommarteatern i Ystad</p>
       </div>
     </div>
   </footer>
@@ -264,6 +304,7 @@
       ]}
     ];
     var maxCols=Math.max.apply(null,days.map(function(d){return d.evening.length;}));
+    var DT_SLOT_H=0;days.forEach(function(d){if(d.daytime&&!DT_SLOT_H)DT_SLOT_H=cardH(d.daytime.s,d.daytime.e)+23;});
     var grid=document.getElementById('kursschema-grid');
     if(!grid)return;
     days.forEach(function(day){
@@ -273,6 +314,8 @@
       title.className='ks-day-title';
       title.textContent=day.name;
       panel.appendChild(title);
+      var dtSlot=document.createElement('div');
+      dtSlot.style.cssText='flex-shrink:0;height:'+DT_SLOT_H+'px';
       if(day.daytime){
         var dc=makeCard(day.daytime);
         dc.classList.add('ks-daytime-card');
@@ -286,12 +329,13 @@
         dtCols.style.cssText='flex:1;display:flex;justify-content:center';
         dtCols.appendChild(dc);
         dtWrap.appendChild(dtCols);
-        panel.appendChild(dtWrap);
+        dtSlot.appendChild(dtWrap);
         var dots=document.createElement('div');
         dots.className='ks-dots';
         dots.textContent='\u00b7 \u00b7 \u00b7';
-        panel.appendChild(dots);
+        dtSlot.appendChild(dots);
       }
+      panel.appendChild(dtSlot);
       // Evening area: time axis + columns
       var evWrap=document.createElement('div');
       evWrap.className='ks-ev-wrap';
