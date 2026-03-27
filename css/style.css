@@ -322,6 +322,37 @@ h3 {
   margin-top: 28px;
 }
 
+.hero-kurs-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.hero-chip {
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 600;
+  color: #fff;
+  border-radius: 10px;
+  padding: 7px 16px;
+  text-decoration: none;
+  transition: opacity 0.15s, transform 0.15s;
+}
+
+.hero-chip:hover {
+  opacity: 0.85;
+  transform: translateY(-2px);
+}
+
+.hero-chip--kidz    { background: var(--kidz); }
+.hero-chip--steg1   { background: var(--steg-1); }
+.hero-chip--steg2   { background: var(--steg-2); }
+.hero-chip--steg3   { background: var(--steg-3); }
+.hero-chip--vuxen   { background: var(--vuxen); }
+.hero-chip--musikal { background: var(--musikal); }
+.hero-chip--senior  { background: var(--senior); }
+
 /* BUTTONS */
 
 .btn {

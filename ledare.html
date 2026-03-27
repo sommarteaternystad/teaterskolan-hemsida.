@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ledare | Teaterskolan</title>
+  <meta name="description" content="Möt ledarna på Teaterskolan — Sommarteatern i Ystad." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    /* ── Verksamhetschef (featured) ─────────────────────────── */
+    .ledare-featured {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      background: var(--surface, #fff);
+      border-radius: 20px;
+      box-shadow: 0 4px 32px rgba(0,0,0,0.08);
+      padding: 40px;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+    .ledare-featured-img {
+      flex-shrink: 0;
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background: #f0f0f5;
+      overflow: hidden;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      color: #c0c0cc;
+      font-size: 11px;
+      font-weight: 500;
+      text-align: center;
+      padding-bottom: 10px;
+      position: relative;
+    }
+    .ledare-featured-img img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      display: block;
+    }
+    .ledare-featured-body {
+      flex: 1;
+    }
+    .ledare-featured-body .ledare-role {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent, #6c47ff);
+      margin-bottom: 8px;
+    }
+    .ledare-featured-body h2 {
+      font-size: clamp(28px, 4vw, 42px);
+      font-weight: 800;
+      line-height: 1.1;
+      margin: 0 0 16px;
+    }
+    .ledare-featured-body p {
+      color: #555;
+      line-height: 1.7;
+      margin-bottom: 24px;
+    }
+    .ledare-contact-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--accent, #6c47ff);
+      text-decoration: none;
+    }
+    .ledare-contact-link:hover { text-decoration: underline; }
+
+    /* ── Ledargrid ──────────────────────────────────────────── */
+    .ledare-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 24px;
+      margin-top: 48px;
+    }
+    .ledare-card {
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.07);
+      overflow: hidden;
+      transition: transform 0.18s, box-shadow 0.18s;
+    }
+    .ledare-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+    }
+    .ledare-card-img {
+      width: 100%;
+      aspect-ratio: 3/4;
+      background: #fff;
+      position: relative;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      color: #c0c0cc;
+      font-size: 12px;
+      font-weight: 500;
+      padding-bottom: 12px;
+    }
+    .ledare-card-img img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      display: block;
+    }
+    .ledare-card-body {
+      padding: 16px 18px 20px;
+    }
+    .ledare-card-body .ledare-role {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: var(--accent, #6c47ff);
+      margin-bottom: 4px;
+    }
+    .ledare-card-body h3 {
+      font-size: 17px;
+      font-weight: 700;
+      margin: 0 0 4px;
+    }
+    .ledare-card-body .ledare-kurser {
+      font-size: 13px;
+      color: #888;
+      margin-bottom: 14px;
+    }
+    .ledare-mail-btn {
+      display: inline-block;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--accent, #6c47ff);
+      text-decoration: none;
+      border: 1.5px solid var(--accent, #6c47ff);
+      border-radius: 8px;
+      padding: 6px 14px;
+      transition: background 0.15s, color 0.15s;
+    }
+    .ledare-mail-btn:hover {
+      background: var(--accent, #6c47ff);
+      color: #fff;
+    }
+
+    @media (max-width: 700px) {
+      .ledare-featured {
+        grid-template-columns: 1fr;
+      }
+      .ledare-featured-img {
+        aspect-ratio: 4/3;
+      }
+      .ledare-featured-body {
+        padding: 24px;
+      }
+      .ledare-grid {
+        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+        gap: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="index.html">
+        <img src="images/logo.png" alt="Teaterskolans logga" class="brand-logo" />
+        <div>
+          <div class="brand-title">Teaterskolan</div>
+          <div class="brand-subtitle">Sommarteatern i Ystad</div>
+        </div>
+      </a>
+      <nav class="site-nav">
+        <a href="index.html">Hem</a>
+        <div class="nav-dropdown">
+          <span class="dropdown-toggle">Kurser</span>
+          <div class="dropdown-menu">
+            <a href="kurser/teaterkidz.html">TeaterKidz</a>
+            <a href="kurser/steg-1.html">Steg 1</a>
+            <a href="kurser/steg-2.html">Steg 2</a>
+            <a href="kurser/steg-3.html">Steg 3</a>
+            <a href="kurser/steg-vuxen.html">Steg Vuxen</a>
+            <a href="kurser/musikal.html">Musikal</a>
+            <a href="kurser/seniorteater.html">SeniorTeater</a>
+          </div>
+        </div>
+        <a href="index.html#kursschema">Schema</a>
+        <a href="index.html#om">Om</a>
+        <a href="ledare.html" class="nav-active">Ledare</a>
+        <a href="#verksamhetschef">Kontakt</a>
+      </nav>
+    </div>
+    <div class="kurs-hero-content container">
+      <p class="eyebrow" style="color:rgba(255,255,255,0.55)">TEATERSKOLAN</p>
+      <h1 style="color:#fff;text-shadow:0 4px 32px rgba(0,0,0,0.5)">Ledare</h1>
+      <p style="color:rgba(255,255,255,0.72);font-size:19px;max-width:560px;margin:16px auto 0;text-shadow:0 1px 8px rgba(0,0,0,0.4)">Möt ledarna som varje vecka skapar magi på scenen tillsammans med eleverna.</p>
+    </div>
+    <div class="header-wave">
+      <svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,38 C300,50 600,22 900,42 C1100,54 1300,28 1440,40 L1440,60 L0,60 Z" fill="#ffffff"/>
+      </svg>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- Verksamhetschef -->
+    <section class="section" id="verksamhetschef">
+      <div class="container">
+        <div class="ledare-featured">
+          <div class="ledare-featured-img">
+            <!-- Byt ut mot: <img src="images/ledare/hannes.jpg" alt="Hannes Nilsson"> -->
+            Foto kommer
+          </div>
+          <div class="ledare-featured-body">
+            <p class="ledare-role">Verksamhetschef</p>
+            <h2>Hannes Nilsson</h2>
+            <p>Hannes är verksamhetschef för Teaterskolan och leder kurserna Musikal Röd, Steg Vuxen A och SeniorTeater.</p>
+            <a class="ledare-mail-btn" href="mailto:hannes.nilsson@sommarteaternystad.com">Maila mig</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Övriga ledare -->
+    <section class="section" style="padding-top:0">
+      <div class="container">
+        <div class="section-head" style="margin-bottom:0">
+          <p class="section-kicker">Våra ledare</p>
+          <h2>Alla ledare på Teaterskolan.</h2>
+        </div>
+        <div class="ledare-grid">
+
+          <div class="ledare-card">
+            <div class="ledare-card-img">Foto kommer</div>
+            <div class="ledare-card-body">
+              <p class="ledare-role">Ledare</p>
+              <h3>Ellen Leufstedt</h3>
+              <p class="ledare-kurser">Musikal Gul, Musikal Lila</p>
+              <a class="ledare-mail-btn" href="mailto:ellen.leufstedt@arbetsgruppen.sommarteaternystad.com">Maila mig</a>
+            </div>
+          </div>
+
+          <div class="ledare-card">
+            <div class="ledare-card-img">Foto kommer</div>
+            <div class="ledare-card-body">
+              <p class="ledare-role">Ledare</p>
+              <h3>Jimmy Johansson</h3>
+              <p class="ledare-kurser">Musikal Gul, Musikal Lila</p>
+              <a class="ledare-mail-btn" href="mailto:jimmy.johansson@arbetsgruppen.sommarteaternystad.com">Maila mig</a>
+            </div>
+          </div>
+
+          <div class="ledare-card">
+            <div class="ledare-card-img">Foto kommer</div>
+            <div class="ledare-card-body">
+              <p class="ledare-role">Ledare</p>
+              <h3>Loke Åkesson</h3>
+              <p class="ledare-kurser">Musikal Gul</p>
+              <a class="ledare-mail-btn" href="mailto:loke.akesson@arbetsgruppen.sommarteaternystad.com">Maila mig</a>
+            </div>
+          </div>
+
+          <div class="ledare-card">
+            <div class="ledare-card-img">Foto kommer</div>
+            <div class="ledare-card-body">
+              <p class="ledare-role">Ledare</p>
+              <h3>Alicia Nilsson</h3>
+              <p class="ledare-kurser">Musikal Röd</p>
+              <a class="ledare-mail-btn" href="mailto:alicia.nilsson@arbetsgruppen.sommarteaternystad.com">Maila mig</a>
+            </div>
+          </div>
+
+          <div class="ledare-card">
+            <div class="ledare-card-img">Foto kommer</div>
+            <div class="ledare-card-body">
+              <p class="ledare-role">Ledare</p>
+              <h3>Hilda Mårtensson</h3>
+              <p class="ledare-kurser">Steg 3</p>
+              <a class="ledare-mail-btn" href="mailto:hilda.martensson@arbetsgruppen.sommarteaternystad.com">Maila mig</a>
+            </div>
+          </div>
+
+          <div class="ledare-card">
+            <div class="ledare-card-img">Foto kommer</div>
+            <div class="ledare-card-body">
+              <p class="ledare-role">Ledare</p>
+              <h3>Daniella Nilsson</h3>
+              <p class="ledare-kurser">Steg 3</p>
+              <a class="ledare-mail-btn" href="mailto:daniella.nilsson@arbetsgruppen.sommarteaternystad.com">Maila mig</a>
+            </div>
+          </div>
+
+          <div class="ledare-card">
+            <div class="ledare-card-img">Foto kommer</div>
+            <div class="ledare-card-body">
+              <p class="ledare-role">Ledare</p>
+              <h3>Adrian Skoog</h3>
+              <p class="ledare-kurser">Steg 3</p>
+              <a class="ledare-mail-btn" href="mailto:adrian.skoog@arbetsgruppen.sommarteaternystad.com">Maila mig</a>
+            </div>
+          </div>
+
+          <div class="ledare-card">
+            <div class="ledare-card-img">Foto kommer</div>
+            <div class="ledare-card-body">
+              <p class="ledare-role">Ledare</p>
+              <h3>Frida Ljunggren</h3>
+              <p class="ledare-kurser">Steg 3</p>
+              <a class="ledare-mail-btn" href="mailto:frida.ljunggren@arbetsgruppen.sommarteaternystad.com">Maila mig</a>
+            </div>
+          </div>
+
+          <div class="ledare-card">
+            <div class="ledare-card-img">Foto kommer</div>
+            <div class="ledare-card-body">
+              <p class="ledare-role">Ledare</p>
+              <h3>Olivia Eriksson</h3>
+              <p class="ledare-kurser">Steg 3</p>
+              <a class="ledare-mail-btn" href="mailto:olivia.eriksson@arbetsgruppen.sommarteaternystad.com">Maila mig</a>
+            </div>
+          </div>
+
+          <div class="ledare-card">
+            <div class="ledare-card-img">Foto kommer</div>
+            <div class="ledare-card-body">
+              <p class="ledare-role">Ledare</p>
+              <h3>Anna Ståhl</h3>
+              <p class="ledare-kurser">Steg Vuxen B</p>
+              <a class="ledare-mail-btn" href="mailto:anna.stahl@sommarteaternystad.com">Maila mig</a>
+            </div>
+          </div>
+
+          <div class="ledare-card">
+            <div class="ledare-card-img">Foto kommer</div>
+            <div class="ledare-card-body">
+              <p class="ledare-role">Ledare</p>
+              <h3>Anna Gudmundsdottir</h3>
+              <p class="ledare-kurser">TeaterKidz</p>
+              <a class="ledare-mail-btn" href="mailto:anna.gudmundsdottir@arbetsgruppen.sommarteaternystad.com">Maila mig</a>
+            </div>
+          </div>
+
+          <div class="ledare-card">
+            <div class="ledare-card-img">Foto kommer</div>
+            <div class="ledare-card-body">
+              <p class="ledare-role">Ledare</p>
+              <h3>Isabella Gudmundsdottir</h3>
+              <p class="ledare-kurser">TeaterKidz</p>
+              <a class="ledare-mail-btn" href="mailto:isabella.gudmundsdottir@arbetsgruppen.sommarteaternystad.com">Maila mig</a>
+            </div>
+          </div>
+
+          <div class="ledare-card">
+            <div class="ledare-card-img">Foto kommer</div>
+            <div class="ledare-card-body">
+              <p class="ledare-role">Ledare</p>
+              <h3>Ledare</h3>
+              <p class="ledare-kurser">—</p>
+            </div>
+          </div>
+
+          <div class="ledare-card">
+            <div class="ledare-card-img">Foto kommer</div>
+            <div class="ledare-card-body">
+              <p class="ledare-role">Ledare</p>
+              <h3>Ledare</h3>
+              <p class="ledare-kurser">—</p>
+            </div>
+          </div>
+
+          <div class="ledare-card">
+            <div class="ledare-card-img">Foto kommer</div>
+            <div class="ledare-card-body">
+              <p class="ledare-role">Ledare</p>
+              <h3>Ledare</h3>
+              <p class="ledare-kurser">—</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-wave">
+      <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,0 C200,70 400,10 650,55 C900,100 1100,15 1300,50 C1380,65 1420,35 1440,45 L1440,0 Z" fill="#ffffff"/>
+      </svg>
+    </div>
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <img src="images/logo.png" alt="Teaterskolan Sommarteatern i Ystad" class="footer-logo">
+        <address class="footer-address">
+          Björnstjernegatan 18<br>
+          271 39 Ystad<br>
+          <span class="footer-address-note">KFUM-Huset</span>
+        </address>
+        <p class="footer-contact">
+          Verksamhetschef<br>
+          <strong>Hannes Nilsson</strong><br>
+          <a href="mailto:hannes.nilsson@sommarteaternystad.com">hannes.nilsson@sommarteaternystad.com</a>
+        </p>
+      </div>
+      <nav class="footer-nav">
+        <h4 class="footer-nav-title">Utforska</h4>
+        <a href="vision-policy.html">Vision &amp; Policy</a>
+        <a href="om-sommarteatern.html">Om Sommarteatern</a>
+        <a href="avgifter.html">Avgifter</a>
+        <a href="myclub.html">MyClub</a>
+      </nav>
+      <div class="footer-partners">
+        <div class="footer-partner">
+          <img src="images/Fritidskortetlogo.png" alt="Fritidskortet" class="partner-logo">
+          <p>Hos oss kan du använda fritidskortet.</p>
+        </div>
+        <div class="footer-partner">
+          <span class="myclub-logo-text"><span>my</span><span class="myclub-arc"></span><span>lub</span></span>
+          <div>
+            <h5 class="partner-heading">Kalender</h5>
+            <p>Logga in på <a href="myclub.html">MyClub.se</a> för gruppens kalender och repetitionsmaterial.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <p>© 2025 Sommarteatern i Ystad</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/site.js"></script>
+</body>
+</html>

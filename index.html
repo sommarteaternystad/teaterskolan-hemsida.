@@ -20,10 +20,22 @@
 
       <nav class="hero-menu" aria-label="Huvudmeny">
         <a href="index.html" class="hero-menu-item">Hem</a>
-        <a href="#kursschema" class="hero-menu-item">Kurser</a>
+        <div class="nav-dropdown hero-menu-item">
+          <span class="dropdown-toggle">Kurser</span>
+          <div class="dropdown-menu">
+            <a href="kurser/teaterkidz.html">TeaterKidz</a>
+            <a href="kurser/steg-1.html">Steg 1</a>
+            <a href="kurser/steg-2.html">Steg 2</a>
+            <a href="kurser/steg-3.html">Steg 3</a>
+            <a href="kurser/steg-vuxen.html">Steg Vuxen</a>
+            <a href="kurser/musikal.html">Musikal</a>
+            <a href="kurser/seniorteater.html">SeniorTeater</a>
+          </div>
+        </div>
+        <a href="#kursschema" class="hero-menu-item">Schema</a>
         <a href="#om" class="hero-menu-item">Om</a>
-        <a href="#faq" class="hero-menu-item">Frågor</a>
-        <a href="#kontakt" class="hero-menu-item">Kontakt</a>
+        <a href="ledare.html" class="hero-menu-item">Ledare</a>
+        <a href="ledare.html#verksamhetschef" class="hero-menu-item">Kontakt</a>
       </nav>
     </div>
   </header>
@@ -52,12 +64,20 @@
         </p>
         <div class="hero-actions">
           <a class="btn btn-primary" href="#kursschema">Se kursschema</a>
-          <a class="btn btn-secondary" href="kurser/steg-1.html">Läs om Steg 1</a>
+        </div>
+        <div class="hero-kurs-chips">
+          <a class="hero-chip hero-chip--kidz"    href="kurser/teaterkidz.html">TeaterKidz</a>
+          <a class="hero-chip hero-chip--steg1"   href="kurser/steg-1.html">Steg 1</a>
+          <a class="hero-chip hero-chip--steg2"   href="kurser/steg-2.html">Steg 2</a>
+          <a class="hero-chip hero-chip--steg3"   href="kurser/steg-3.html">Steg 3</a>
+          <a class="hero-chip hero-chip--vuxen"   href="kurser/steg-vuxen.html">Steg Vuxen</a>
+          <a class="hero-chip hero-chip--musikal" href="kurser/musikal.html">Musikal</a>
+          <a class="hero-chip hero-chip--senior"  href="kurser/seniorteater.html">SeniorTeater</a>
         </div>
       </div>
     </section>
 
-    <section class="section">
+    <section class="section" id="om" style="padding-top:40px">
       <div class="container">
         <div class="intro-grid intro-grid-two">
           <div class="panel graphic-panel">
