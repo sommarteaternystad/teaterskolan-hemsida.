@@ -210,6 +210,12 @@ img {
   font-weight: 800;
   backdrop-filter: blur(10px);
   transition: 0.2s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.nav-dropdown.hero-menu-item:hover {
+  z-index: 20;
 }
 
 .hero-menu-item:hover {
@@ -1058,6 +1064,13 @@ h3 {
 
 .nav-dropdown {
   position: relative;
+  display: inline-flex;
+  align-items: center;
+  z-index: 1;
+}
+
+.nav-dropdown:hover {
+  z-index: 10;
 }
 
 .dropdown-toggle {
@@ -1195,6 +1208,11 @@ h3 {
 
 .kurs-grid--three {
   grid-template-columns: repeat(3, 1fr);
+}
+
+.kurs-grid--one {
+  grid-template-columns: 1fr;
+  max-width: 540px;
 }
 
 .kurs-card {
@@ -1462,6 +1480,96 @@ h3 {
 
   .footer-wave svg {
     height: 50px;
+  }
+
+  /* ── NAV (kurs- och ledarsidor) ── */
+  .nav-wrap {
+    flex-wrap: wrap;
+    gap: 6px 0;
+    padding: 12px 0;
+  }
+  .site-nav {
+    flex-wrap: wrap;
+    gap: 4px 14px;
+    width: 100%;
+  }
+  .site-nav > a,
+  .nav-dropdown > .dropdown-toggle {
+    font-size: 13px;
+  }
+  .dropdown-menu {
+    left: 0;
+    transform: none;
+  }
+
+  /* ── TICKET BANNER ── */
+  .ticket-banner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 22px 20px;
+  }
+  .ticket-btn {
+    width: 100%;
+    justify-content: center;
+  }
+  .ticket-banner::before {
+    display: none;
+  }
+
+  /* ── KURS GRIDS ── */
+  .kurs-grid,
+  .kurs-grid--three {
+    grid-template-columns: 1fr;
+  }
+
+  /* ── STAT GRID ── */
+  .stat-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* ── SECTION HEAD ── */
+  .section-head {
+    text-align: center;
+  }
+
+  /* ── KURS FAKTA ── */
+  .kurs-fakta-panel {
+    padding: 20px;
+  }
+
+  /* ── KURS HERO ── */
+  .kurs-hero-content {
+    padding: 20px 0 8px;
+  }
+  .kurs-hero-content h1 {
+    font-size: 36px;
+  }
+  .kurs-hero-content > p {
+    font-size: 16px;
+    max-width: 100%;
+  }
+
+  /* ── CHIPS PÅ STARTSIDAN ── */
+  .hero-kurs-chips {
+    gap: 6px;
+  }
+  .hero-chip {
+    font-size: 12px;
+    padding: 6px 13px;
+  }
+
+  /* ── LEDARE GRID ── */
+  .ledare-grid {
+    grid-template-columns: repeat(auto-fill, minmax(155px, 1fr)) !important;
+    gap: 14px !important;
+    margin-top: 28px !important;
+  }
+
+  /* ── CTA KONTAKT ── */
+  .cta-box {
+    flex-direction: column;
+    align-items: flex-start;
   }
 }
 
