@@ -1082,6 +1082,12 @@ h3 {
   user-select: none;
 }
 
+.hero-menu-item .dropdown-toggle {
+  font-size: inherit;
+  font-weight: inherit;
+  color: inherit;
+}
+
 .dropdown-toggle:hover,
 .nav-dropdown:hover .dropdown-toggle {
   color: #fff;
