@@ -45,11 +45,11 @@
       <div class="container">
         <div class="ticket-banner">
           <div class="ticket-banner-text">
-            <p class="ticket-banner-label">Biljetter terminsföreställningar</p>
-            <h2>Nu har Teaterskolan släppt biljetterna till vårens stora terminsavslutningar!</h2>
-            <p>Först ut på scenen är Steg 1 och Steg 2 under första helgen i maj, och därefter tar nya grupper över scenen varje helg. Ta del av elevernas arbete och säkra dina platser redan idag. Biljetterna hittar du nedan. 🎭✨</p>
+            <p class="ticket-banner-label">Höstterminen 2026</p>
+            <h2>Anmälan öppnar måndag den 15 juni!</h2>
+            <p>Då uppdateras hemsidan inför höstterminen 2026 med alla grupper, tider och ledare. Håll utkik — det händer snart!</p>
           </div>
-          <a class="btn ticket-btn" href="https://nortic.se/ticket/organizer/1010" target="_blank" rel="noopener">Köp biljetter →</a>
+          <a class="btn ticket-btn" href="ledare.html#verksamhetschef">Frågor? Kontakta oss</a>
         </div>
       </div>
     </section>
@@ -138,10 +138,14 @@
   <div class="container">
     <div class="section-head center">
       <p class="section-kicker">Kursschema</p>
-      <h2>Hitta rätt grupp direkt i veckoschemat.</h2>
-      <p>Klicka på en grupp för att läsa mer om kursen, nivå, innehåll och anmälan.</p>
+      <h2>Schemat uppdateras inför höstterminen 2026.</h2>
+      <p>Anmälan öppnar måndag den 15 juni — då publiceras alla grupper, tider och ledare.</p>
     </div>
-    <div class="week-schedule" id="kursschema-grid"></div>
+    <div class="panel graphic-panel" style="max-width:640px;margin:0 auto;text-align:center;padding:40px 32px">
+      <p style="font-size:2rem;margin-bottom:12px">🗓️</p>
+      <h3 style="margin-bottom:8px">Grupper och tider — kommer snart</h3>
+      <p style="color:#666">Höstterminen 2026 presenteras här från och med 15 juni. Läs mer om varje kurs nedan medan du väntar.</p>
+    </div>
   </div>
 </section>
 
@@ -258,154 +262,5 @@
   </footer>
 
   <script src="js/site.js"></script>
-  <script>
-  (function(){
-    var PX=1.6,GAP=3,ORIGIN=16*60,EVENING_END=20*60+30;
-    var EVENING_H=(EVENING_END-ORIGIN)*PX; // 270min * 1.6 = 432px
-    var HOURS=[16,17,18,19,20];
-    function toMins(s){var p=s.split('.');return parseInt(p[0])*60+parseInt(p[1]);}
-    function cardH(s,e){return Math.max((toMins(e)-toMins(s))*PX-GAP,24);}
-    function makeCard(item){
-      var a=document.createElement('a');
-      a.className='ks-card '+item.c;
-      a.href=item.url||'#';
-      a.style.height=cardH(item.s,item.e)+'px';
-      a.innerHTML='<span class="ks-t">'+item.s+'\u2013'+item.e+'</span><span class="ks-n">'+item.n+'</span><span class="ks-l">'+item.l+'</span>';
-      return a;
-    }
-    function makeCol(cards){
-      var col=document.createElement('div');
-      col.className='ks-col';
-      col.style.cssText='height:'+EVENING_H+'px;flex:0 0 calc((100% - '+(4*(maxCols-1))+'px) / '+maxCols+');min-width:0;display:flex;flex-direction:column;overflow:hidden';
-      var cursor=ORIGIN;
-      cards.forEach(function(item){
-        var startM=toMins(item.s);
-        if(startM>cursor){
-          var sp=document.createElement('div');
-          sp.style.cssText='height:'+((startM-cursor)*PX)+'px;flex-shrink:0;min-height:0';
-          col.appendChild(sp);
-        }
-        col.appendChild(makeCard(item));
-        cursor=toMins(item.e);
-        var gapSp=document.createElement('div');
-        gapSp.style.cssText='height:'+GAP+'px;flex-shrink:0';
-        col.appendChild(gapSp);
-      });
-      return col;
-    }
-    var days=[
-      {name:'M\u00e5ndag',evening:[
-        [
-          {s:'16.30',e:'17.30',n:'Steg 1',l:'Daniella, Hilda, Lucas',c:'ks-steg1',url:'kurser/steg-1.html'},
-          {s:'17.30',e:'18.45',n:'Steg 2',l:'Daniella, Hilda, Lucas',c:'ks-steg2',url:'kurser/steg-2.html'},
-          {s:'18.45',e:'20.00',n:'Steg 3',l:'Daniella, Hilda, Lucas',c:'ks-steg3',url:'kurser/steg-3.html'}
-        ],
-        [
-          {s:'17.30',e:'19.00',n:'Musikal Gul',l:'Loke, Jimmy',c:'ks-musikal',url:'kurser/musikal.html'},
-          {s:'19.00',e:'20.30',n:'Musikal Lila',l:'Ellen, Jimmy, Loke',c:'ks-musikal',url:'kurser/musikal.html'}
-        ]
-      ]},
-      {name:'Tisdag',daytime:{s:'11.00',e:'12.30',n:'SeniorTeater',l:'Hannes',c:'ks-senior',url:'kurser/seniorteater.html'},evening:[
-        [
-          {s:'17.00',e:'18.30',n:'Steg Vuxen A',l:'Hannes, Gustaf',c:'ks-vuxen',url:'kurser/vuxenteater.html'}
-        ],
-        [
-          {s:'16.30',e:'17.30',n:'Steg 1',l:'Hilda, Adrian',c:'ks-steg1',url:'kurser/steg-1.html'},
-          {s:'17.30',e:'19.00',n:'Steg 3',l:'Hilda, Adrian',c:'ks-steg3',url:'kurser/steg-3.html'},
-          {s:'19.00',e:'20.15',n:'Steg 2',l:'Adrian, Zeb, Signe',c:'ks-steg2',url:'kurser/steg-2.html'}
-        ],
-        [
-          {s:'17.00',e:'17.45',n:'TeaterKidz',l:'Anna G, Isabella G',c:'ks-kidz',url:'kurser/teaterkidz.html'},
-          {s:'17.45',e:'19.15',n:'Steg Vuxen B',l:'Anna, Nicole, Gustaf, Isabella M',c:'ks-vuxen',url:'kurser/vuxenteater.html'}
-        ]
-      ]},
-      {name:'Onsdag',evening:[
-        [
-          {s:'16.30',e:'17.30',n:'Steg 1',l:'Olivia, Selma',c:'ks-steg1',url:'kurser/steg-1.html'},
-          {s:'17.30',e:'18.45',n:'Steg 2',l:'Olivia, Frida, Selma',c:'ks-steg2',url:'kurser/steg-2.html'},
-          {s:'18.45',e:'20.00',n:'Steg 3',l:'Olivia, Frida',c:'ks-steg3',url:'kurser/steg-3.html'}
-        ]
-      ]},
-      {name:'Torsdag',evening:[
-        [
-          {s:'17.45',e:'18.45',n:'Steg 1',l:'Alice, Mira',c:'ks-steg1',url:'kurser/steg-1.html'},
-          {s:'18.45',e:'20.00',n:'Steg 2',l:'Alice, Mira',c:'ks-steg2',url:'kurser/steg-2.html'}
-        ],
-        [
-          {s:'17.00',e:'20.00',n:'Musikal R\u00f6d',l:'Hannes, Alicia',c:'ks-musikal',url:'kurser/musikal.html'}
-        ]
-      ]}
-    ];
-    var maxCols=Math.max.apply(null,days.map(function(d){return d.evening.length;}));
-    var DT_SLOT_H=0;days.forEach(function(d){if(d.daytime&&!DT_SLOT_H)DT_SLOT_H=cardH(d.daytime.s,d.daytime.e)+23;});
-    var grid=document.getElementById('kursschema-grid');
-    if(!grid)return;
-    days.forEach(function(day){
-      var panel=document.createElement('div');
-      panel.className='ks-day';
-      var title=document.createElement('h3');
-      title.className='ks-day-title';
-      title.textContent=day.name;
-      panel.appendChild(title);
-      var dtSlot=document.createElement('div');
-      dtSlot.style.cssText='flex-shrink:0;height:'+DT_SLOT_H+'px';
-      if(day.daytime){
-        var dc=makeCard(day.daytime);
-        dc.classList.add('ks-daytime-card');
-        dc.style.width='calc((100% - '+(4*(maxCols-1))+'px) / '+maxCols+')';
-        var dtWrap=document.createElement('div');
-        dtWrap.style.cssText='display:flex;gap:5px';
-        var dtAxis=document.createElement('div');
-        dtAxis.style.cssText='width:22px;flex-shrink:0';
-        dtWrap.appendChild(dtAxis);
-        var dtCols=document.createElement('div');
-        dtCols.style.cssText='flex:1;display:flex;justify-content:center';
-        dtCols.appendChild(dc);
-        dtWrap.appendChild(dtCols);
-        dtSlot.appendChild(dtWrap);
-        var dots=document.createElement('div');
-        dots.className='ks-dots';
-        dots.textContent='\u00b7 \u00b7 \u00b7';
-        dtSlot.appendChild(dots);
-      }
-      panel.appendChild(dtSlot);
-      // Evening area: time axis + columns
-      var evWrap=document.createElement('div');
-      evWrap.className='ks-ev-wrap';
-      // Time axis
-      var axis=document.createElement('div');
-      axis.className='ks-axis';
-      axis.style.cssText='position:relative;height:'+EVENING_H+'px';
-      HOURS.forEach(function(h){
-        var y=(h*60-ORIGIN)*PX;
-        var lbl=document.createElement('span');
-        lbl.className='ks-hlbl';
-        lbl.style.cssText='position:absolute;top:'+y+'px'+(h>16?';transform:translateY(-50%)':'');
-        lbl.textContent=h+'\u2019';
-        axis.appendChild(lbl);
-      });
-      evWrap.appendChild(axis);
-      // Columns wrapper with hour lines
-      var colsWrap=document.createElement('div');
-      colsWrap.className='ks-cols-wrap';
-      colsWrap.style.cssText='position:relative;flex:1;height:'+EVENING_H+'px';
-      HOURS.forEach(function(h){
-        var y=(h*60-ORIGIN)*PX;
-        var line=document.createElement('div');
-        line.className='ks-hline';
-        line.style.cssText='position:absolute;top:'+y+'px;left:0;right:0;height:1px';
-        colsWrap.appendChild(line);
-      });
-      var cols=document.createElement('div');
-      cols.className='ks-cols';
-      cols.style.cssText='position:relative;z-index:1;height:'+EVENING_H+'px;display:flex;gap:4px;justify-content:center';
-      day.evening.forEach(function(colCards){cols.appendChild(makeCol(colCards));});
-      colsWrap.appendChild(cols);
-      evWrap.appendChild(colsWrap);
-      panel.appendChild(evWrap);
-      grid.appendChild(panel);
-    });
-  })();
-  </script>
 </body>
 </html>
