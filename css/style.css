@@ -15,6 +15,7 @@
   --musikal: #5f7ea8;
   --senior: #5f8e86;
   --vuxen: #8f6b60;
+  --play: #c97a3e;
 
   --max: 1280px;
   --radius-lg: 28px;
@@ -358,6 +359,7 @@ h3 {
 .hero-chip--vuxen   { background: var(--vuxen); }
 .hero-chip--musikal { background: var(--musikal); }
 .hero-chip--senior  { background: var(--senior); }
+.hero-chip--play    { background: var(--play); }
 
 /* BUTTONS */
 
@@ -1275,6 +1277,10 @@ h3 {
 
 .kurs-card--kidz .kurs-card-header {
   background: var(--kidz);
+}
+
+.kurs-card--play .kurs-card-header {
+  background: var(--play);
 }
 
 .kurs-card-dag {
