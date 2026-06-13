@@ -847,6 +847,23 @@ h3 {
   transform: translateY(-1px);
 }
 
+/* PHOTO GALLERY */
+
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  margin-top: 32px;
+}
+
+.photo-grid img {
+  width: 100%;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow);
+}
+
 /* FAQ / CTA / FOOTER */
 
 .slim {
@@ -1543,6 +1560,12 @@ h3 {
   .kurs-grid,
   .kurs-grid--three {
     grid-template-columns: 1fr;
+  }
+
+  /* ── PHOTO GALLERY ── */
+  .photo-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
   }
 
   /* ── STAT GRID ── */
