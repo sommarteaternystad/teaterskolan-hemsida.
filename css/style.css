@@ -1907,9 +1907,9 @@ h3 {
 
 .week-schedule {
   display: grid;
-  grid-template-columns: 1fr 1.35fr 0.9fr 1fr;
+  grid-template-columns: repeat(5, 1fr);
   gap: 14px;
-  align-items: stretch;
+  align-items: start;
 }
 
 .ks-day {
@@ -1917,15 +1917,15 @@ h3 {
     linear-gradient(rgba(39, 20, 79, 0.74), rgba(39, 20, 79, 0.74)),
     url('../images/hero-bg.png') center/cover no-repeat;
   border-radius: 20px;
-  padding: 12px 10px 14px;
+  padding: 14px 10px;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  height: 100%;
+  gap: 6px;
 }
 
 .ks-day-title {
-  margin: 0 0 10px;
+  margin: 0 0 4px;
   color: #fff;
   font-size: 11px;
   font-weight: 700;
@@ -1934,82 +1934,13 @@ h3 {
   text-align: center;
 }
 
-.ks-dots {
-  text-align: center;
-  color: rgba(255,255,255,0.3);
-  font-size: 10px;
-  margin: 5px 0 4px;
-  letter-spacing: 0.05em;
-}
-
-.ks-daytime-card {
-  flex-shrink: 0;
-}
-
-/* Evening wrapper: time axis + columns */
-.ks-ev-wrap {
-  display: flex;
-  gap: 5px;
-  flex: 1;
-}
-
-.ks-axis {
-  width: 22px;
-  flex-shrink: 0;
-  position: relative;
-}
-
-.ks-hlbl {
-  position: absolute;
-  font-size: 8px;
-  font-weight: 600;
-  color: rgba(255,255,255,0.28);
-  line-height: 1;
-  right: 0;
-  text-align: right;
-  letter-spacing: -0.01em;
-}
-
-.ks-cols-wrap {
-  position: relative;
-  flex: 1;
-  overflow: hidden;
-}
-
-.ks-hline {
-  position: absolute;
-  left: 0;
-  right: 0;
-  height: 1px;
-  background: rgba(255,255,255,0.1);
-  pointer-events: none;
-}
-
-.ks-cols {
-  position: relative;
-  z-index: 1;
-  display: flex;
-  gap: 4px;
-}
-
-.ks-col {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-  min-width: 0;
-  flex-shrink: 1;
-}
-
 .ks-card {
   display: block;
   border-radius: 7px;
-  padding: 4px 6px;
+  padding: 6px 8px;
   border: 1.5px solid rgba(255,255,255,0.7);
   text-decoration: none;
   box-sizing: border-box;
-  overflow: hidden;
-  flex-shrink: 0;
-  width: 100%;
   transition: opacity 0.15s;
 }
 
@@ -2046,16 +1977,68 @@ h3 {
 .ks-senior  { background: var(--senior); }
 .ks-vuxen   { background: var(--vuxen); }
 .ks-kidz    { background: var(--kidz); }
-.ks-sang    { background: #6b6b6b; }
+.ks-play    { background: var(--play); }
 
 @media (max-width: 1200px) {
   .week-schedule {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
-@media (max-width: 680px) {
+@media (max-width: 860px) {
+  .week-schedule {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 560px) {
   .week-schedule {
     grid-template-columns: 1fr;
   }
+}
+
+/* ===== GRUPPKORT (kursbrickor) ===== */
+
+.group-tiles {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  margin-top: 32px;
+}
+
+.group-tile {
+  border-radius: var(--radius-md);
+  padding: 20px 22px;
+  color: #fff;
+  box-shadow: var(--shadow);
+}
+
+.group-tile-label {
+  display: block;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  opacity: 0.78;
+  margin-bottom: 6px;
+}
+
+.group-tile-day {
+  display: block;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.group-tile-time {
+  display: block;
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  margin: 2px 0 8px;
+}
+
+.group-tile-leaders {
+  display: block;
+  font-size: 14px;
+  opacity: 0.85;
 }
