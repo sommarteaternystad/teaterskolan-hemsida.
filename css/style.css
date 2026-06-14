@@ -1934,8 +1934,20 @@ h3 {
   text-align: center;
 }
 
+.ks-tracks {
+  display: grid;
+  gap: 6px;
+  grid-auto-rows: minmax(30px, auto);
+}
+
+.ks-tracks--1 { grid-template-columns: 1fr; }
+.ks-tracks--2 { grid-template-columns: repeat(2, 1fr); }
+.ks-tracks--3 { grid-template-columns: repeat(3, 1fr); }
+
 .ks-card {
-  display: block;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   border-radius: 7px;
   padding: 6px 8px;
   border: 1.5px solid rgba(255,255,255,0.7);
