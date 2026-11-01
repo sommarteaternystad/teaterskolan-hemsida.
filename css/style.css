@@ -799,6 +799,14 @@ h3 {
   line-height: 1;
 }
 
+.ticket-banner-poster {
+  flex-shrink: 0;
+  width: 110px;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+  display: block;
+}
+
 .ticket-banner-text {
   flex: 1;
 }
@@ -1553,6 +1561,9 @@ h3 {
     justify-content: center;
   }
   .ticket-banner::before {
+    display: none;
+  }
+  .ticket-banner-poster {
     display: none;
   }
 
